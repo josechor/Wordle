@@ -7,6 +7,7 @@ package GUI;
 
 import Clases.IWordle;
 import Clases.motorTest;
+import Clases.motorDeporte;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,8 +36,8 @@ public class WordleGUI extends javax.swing.JFrame {
     public WordleGUI() {
         initComponents();
         
-        motor = new motorTest();
-        palabraA = motor.palabraAleatoria();
+        motor = new motorDeporte();
+        palabraA = motor.palabraAleatoria().toUpperCase();
         inicializarLabels();
         
         
@@ -105,6 +106,7 @@ public class WordleGUI extends javax.swing.JFrame {
         palabraIntentar = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         ganarLabel = new javax.swing.JLabel();
+        palabraPierdes = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         mensajeError = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -113,9 +115,11 @@ public class WordleGUI extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        motorDeporte = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Main.setBackground(new java.awt.Color(255, 102, 204));
         Main.setLayout(new java.awt.BorderLayout());
 
         palabrasPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
@@ -127,6 +131,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label11.setBackground(new java.awt.Color(255, 255, 247));
         label11.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label11.setForeground(new java.awt.Color(255, 255, 255));
         label11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label11.setToolTipText("");
         label11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -139,6 +144,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label12.setBackground(new java.awt.Color(255, 255, 247));
         label12.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label12.setForeground(new java.awt.Color(255, 255, 255));
         label12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label12.setToolTipText("");
         label12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -150,6 +156,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label13.setBackground(new java.awt.Color(255, 255, 247));
         label13.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label13.setForeground(new java.awt.Color(255, 255, 255));
         label13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label13.setToolTipText("");
         label13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -161,6 +168,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label14.setBackground(new java.awt.Color(255, 255, 247));
         label14.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label14.setForeground(new java.awt.Color(255, 255, 255));
         label14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label14.setToolTipText("");
         label14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -172,6 +180,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label15.setBackground(new java.awt.Color(255, 255, 247));
         label15.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label15.setForeground(new java.awt.Color(255, 255, 255));
         label15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label15.setToolTipText("");
         label15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -183,6 +192,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label21.setBackground(new java.awt.Color(255, 255, 247));
         label21.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label21.setForeground(new java.awt.Color(255, 255, 255));
         label21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label21.setToolTipText("");
         label21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -194,6 +204,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label22.setBackground(new java.awt.Color(255, 255, 247));
         label22.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label22.setForeground(new java.awt.Color(255, 255, 255));
         label22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label22.setToolTipText("");
         label22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -205,6 +216,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label23.setBackground(new java.awt.Color(255, 255, 247));
         label23.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label23.setForeground(new java.awt.Color(255, 255, 255));
         label23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label23.setToolTipText("");
         label23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -217,6 +229,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label24.setBackground(new java.awt.Color(255, 255, 247));
         label24.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label24.setForeground(new java.awt.Color(255, 255, 255));
         label24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label24.setToolTipText("");
         label24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -228,6 +241,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label25.setBackground(new java.awt.Color(255, 255, 247));
         label25.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label25.setForeground(new java.awt.Color(255, 255, 255));
         label25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label25.setToolTipText("");
         label25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -239,6 +253,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label31.setBackground(new java.awt.Color(255, 255, 247));
         label31.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label31.setForeground(new java.awt.Color(255, 255, 255));
         label31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label31.setToolTipText("");
         label31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -250,6 +265,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label32.setBackground(new java.awt.Color(255, 255, 247));
         label32.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label32.setForeground(new java.awt.Color(255, 255, 255));
         label32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label32.setToolTipText("");
         label32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -261,6 +277,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label33.setBackground(new java.awt.Color(255, 255, 247));
         label33.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label33.setForeground(new java.awt.Color(255, 255, 255));
         label33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label33.setToolTipText("");
         label33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -272,6 +289,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label34.setBackground(new java.awt.Color(255, 255, 247));
         label34.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label34.setForeground(new java.awt.Color(255, 255, 255));
         label34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label34.setToolTipText("");
         label34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -283,6 +301,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label35.setBackground(new java.awt.Color(255, 255, 247));
         label35.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label35.setForeground(new java.awt.Color(255, 255, 255));
         label35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label35.setToolTipText("");
         label35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -294,6 +313,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label41.setBackground(new java.awt.Color(255, 255, 247));
         label41.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label41.setForeground(new java.awt.Color(255, 255, 255));
         label41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label41.setToolTipText("");
         label41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -305,6 +325,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label42.setBackground(new java.awt.Color(255, 255, 247));
         label42.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label42.setForeground(new java.awt.Color(255, 255, 255));
         label42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label42.setToolTipText("");
         label42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -316,6 +337,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label43.setBackground(new java.awt.Color(255, 255, 247));
         label43.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label43.setForeground(new java.awt.Color(255, 255, 255));
         label43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label43.setToolTipText("");
         label43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -327,6 +349,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label44.setBackground(new java.awt.Color(255, 255, 247));
         label44.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label44.setForeground(new java.awt.Color(255, 255, 255));
         label44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label44.setToolTipText("");
         label44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -338,6 +361,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label45.setBackground(new java.awt.Color(255, 255, 247));
         label45.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label45.setForeground(new java.awt.Color(255, 255, 255));
         label45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label45.setToolTipText("");
         label45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -349,6 +373,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label51.setBackground(new java.awt.Color(255, 255, 247));
         label51.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label51.setForeground(new java.awt.Color(255, 255, 255));
         label51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label51.setOpaque(true);
@@ -356,6 +381,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label52.setBackground(new java.awt.Color(255, 255, 247));
         label52.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label52.setForeground(new java.awt.Color(255, 255, 255));
         label52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label52.setOpaque(true);
@@ -363,6 +389,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label53.setBackground(new java.awt.Color(255, 255, 247));
         label53.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label53.setForeground(new java.awt.Color(255, 255, 255));
         label53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label53.setOpaque(true);
@@ -370,6 +397,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label54.setBackground(new java.awt.Color(255, 255, 247));
         label54.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label54.setForeground(new java.awt.Color(255, 255, 255));
         label54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label54.setOpaque(true);
@@ -377,6 +405,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         label55.setBackground(new java.awt.Color(255, 255, 247));
         label55.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label55.setForeground(new java.awt.Color(255, 255, 255));
         label55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label55.setOpaque(true);
@@ -437,10 +466,13 @@ public class WordleGUI extends javax.swing.JFrame {
 
         botonesPanel.add(jPanel4);
 
-        jPanel3.setLayout(new java.awt.GridBagLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(0, 1));
 
         ganarLabel.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jPanel3.add(ganarLabel, new java.awt.GridBagConstraints());
+        jPanel3.add(ganarLabel);
+
+        palabraPierdes.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jPanel3.add(palabraPierdes);
 
         botonesPanel.add(jPanel3);
 
@@ -468,13 +500,17 @@ public class WordleGUI extends javax.swing.JFrame {
         jMenu2.setText("Motor");
 
         BotonMotorGrupo.add(jRadioButtonMenuItem1);
+        jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("Test");
         jMenu2.add(jRadioButtonMenuItem1);
 
         BotonMotorGrupo.add(jRadioButtonMenuItem2);
-        jRadioButtonMenuItem2.setSelected(true);
         jRadioButtonMenuItem2.setText("File");
         jMenu2.add(jRadioButtonMenuItem2);
+
+        BotonMotorGrupo.add(motorDeporte);
+        motorDeporte.setText("Deportle");
+        jMenu2.add(motorDeporte);
 
         jMenuBar1.add(jMenu2);
 
@@ -511,8 +547,13 @@ public class WordleGUI extends javax.swing.JFrame {
                     ganar = false;
                     completarLabels(palabra,ganar);
                     if(cont==5){
+                        finalizarJuego();
                         this.ganarLabel.setForeground(ROJO);
-                        this.ganarLabel.setText("Has perdido");
+                        this.ganarLabel.setText("Has perdido!!!");
+                        this.palabraPierdes.setForeground(ROJO);
+                        this.palabraPierdes.setText("La palabra correcta: "+palabraA);
+                                
+                        
                         
                     }
                 }
@@ -527,12 +568,13 @@ public class WordleGUI extends javax.swing.JFrame {
         this.palabraIntentar.setEditable(false);
     }
     private void botonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReinicioActionPerformed
-        palabraA = motor.palabraAleatoria();
+        palabraA = motor.palabraAleatoria().toUpperCase();
         System.out.println(palabraA);
         
         for(JLabel[] label : labels){
             for(JLabel jLabel : label){
                 jLabel.setText("");
+                jLabel.setBackground(Color.WHITE);
             }
         }
         
@@ -568,7 +610,7 @@ public class WordleGUI extends javax.swing.JFrame {
                 JLabel jLabel = label[j];
                 String letra = palabra.charAt(j) + "";
                 jLabel.setText(letra);
-                jLabel.setForeground(VERDE);
+                jLabel.setBackground(VERDE);
             } 
         }else{
             JLabel[] label = labels[cont-1];
@@ -576,7 +618,7 @@ public class WordleGUI extends javax.swing.JFrame {
                 JLabel jLabel = label[j];
                 String letra = palabra.charAt(j) + "";
                 jLabel.setText(letra);
-                jLabel.setForeground(colorLetra(sb,sbA,j));
+                jLabel.setBackground(colorLetra(sb,sbA,j));
                 
             } 
         }
@@ -613,7 +655,7 @@ public class WordleGUI extends javax.swing.JFrame {
         }
         else{
             mensajeError.setForeground(ROJO);
-            mensajeError.setText("Formato de palabra no valido");
+            mensajeError.setText("Formato de palabra no válido");
             return false;
         }
     }
@@ -699,7 +741,9 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JLabel letrasFalladas;
     private javax.swing.JPanel letrasPanel;
     private javax.swing.JLabel mensajeError;
+    private javax.swing.JRadioButtonMenuItem motorDeporte;
     private javax.swing.JTextArea palabraIntentar;
+    private javax.swing.JLabel palabraPierdes;
     private javax.swing.JPanel palabrasPanel;
     // End of variables declaration//GEN-END:variables
 }
