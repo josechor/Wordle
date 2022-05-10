@@ -19,6 +19,9 @@ import javax.swing.JLabel;
 public class WordleGUI extends javax.swing.JFrame {
     
     private final Color VERDE = new Color(51,102,0);
+    private final Color NARANJA = new Color(204,153,0);
+    private final Color ROJO = new Color(204,0,0);
+    
     
     private IWordle motor;
     private int cont = 1;
@@ -378,12 +381,16 @@ public class WordleGUI extends javax.swing.JFrame {
         botonesPanel.add(jPanel4);
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        ganarLabel.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jPanel3.add(ganarLabel, new java.awt.GridBagConstraints());
 
         botonesPanel.add(jPanel3);
 
-        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
-        jPanel6.add(mensajeError);
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        mensajeError.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jPanel6.add(mensajeError, new java.awt.GridBagConstraints());
 
         botonesPanel.add(jPanel6);
 
@@ -441,12 +448,13 @@ public class WordleGUI extends javax.swing.JFrame {
                     ganar = true;
                     completarLabels(palabra,ganar);
                     finalizarJuego();
+                    this.ganarLabel.setForeground(VERDE);
                     this.ganarLabel.setText("Has ganado en "+cont+" intentos");
                 }else{
                     ganar = false;
                     completarLabels(palabra,ganar);
                     if(cont==5){
-                        
+                        this.ganarLabel.setForeground(ROJO);
                         this.ganarLabel.setText("Has perdido");
                         
                     }
@@ -510,7 +518,7 @@ public class WordleGUI extends javax.swing.JFrame {
             return true;
         }
         else{
-            mensajeError.setForeground(Color.red);
+            mensajeError.setForeground(ROJO);
             mensajeError.setText("Formato de palabra no valido");
             return false;
         }
