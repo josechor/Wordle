@@ -34,6 +34,7 @@ public class WordleGUI extends javax.swing.JFrame {
     
     public WordleGUI() {
         initComponents();
+        
         motor = new motorTest();
         palabraA = motor.palabraAleatoria();
         inicializarLabels();
@@ -124,211 +125,261 @@ public class WordleGUI extends javax.swing.JFrame {
         letrasPanel.setPreferredSize(new java.awt.Dimension(250, 250));
         letrasPanel.setLayout(new java.awt.GridLayout(5, 5, 4, 4));
 
-        label11.setBackground(new java.awt.Color(102, 255, 255));
+        label11.setBackground(new java.awt.Color(255, 255, 247));
         label11.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label11.setToolTipText("");
+        label11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         label11.setMaximumSize(new java.awt.Dimension(40, 40));
         label11.setMinimumSize(new java.awt.Dimension(40, 40));
+        label11.setOpaque(true);
         label11.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label11);
 
-        label12.setBackground(new java.awt.Color(102, 255, 255));
+        label12.setBackground(new java.awt.Color(255, 255, 247));
         label12.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label12.setToolTipText("");
+        label12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label12.setMaximumSize(new java.awt.Dimension(40, 40));
         label12.setMinimumSize(new java.awt.Dimension(40, 40));
+        label12.setOpaque(true);
         label12.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label12);
 
-        label13.setBackground(new java.awt.Color(102, 255, 255));
+        label13.setBackground(new java.awt.Color(255, 255, 247));
         label13.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label13.setToolTipText("");
+        label13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label13.setMaximumSize(new java.awt.Dimension(40, 40));
         label13.setMinimumSize(new java.awt.Dimension(40, 40));
+        label13.setOpaque(true);
         label13.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label13);
 
-        label14.setBackground(new java.awt.Color(102, 255, 255));
+        label14.setBackground(new java.awt.Color(255, 255, 247));
         label14.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label14.setToolTipText("");
+        label14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label14.setMaximumSize(new java.awt.Dimension(40, 40));
         label14.setMinimumSize(new java.awt.Dimension(40, 40));
+        label14.setOpaque(true);
         label14.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label14);
 
-        label15.setBackground(new java.awt.Color(102, 255, 255));
+        label15.setBackground(new java.awt.Color(255, 255, 247));
         label15.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label15.setToolTipText("");
+        label15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label15.setMaximumSize(new java.awt.Dimension(40, 40));
         label15.setMinimumSize(new java.awt.Dimension(40, 40));
+        label15.setOpaque(true);
         label15.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label15);
 
-        label21.setBackground(new java.awt.Color(102, 255, 255));
+        label21.setBackground(new java.awt.Color(255, 255, 247));
         label21.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label21.setToolTipText("");
+        label21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label21.setMaximumSize(new java.awt.Dimension(40, 40));
         label21.setMinimumSize(new java.awt.Dimension(40, 40));
+        label21.setOpaque(true);
         label21.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label21);
 
-        label22.setBackground(new java.awt.Color(102, 255, 255));
+        label22.setBackground(new java.awt.Color(255, 255, 247));
         label22.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label22.setToolTipText("");
+        label22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label22.setMaximumSize(new java.awt.Dimension(40, 40));
         label22.setMinimumSize(new java.awt.Dimension(40, 40));
+        label22.setOpaque(true);
         label22.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label22);
 
-        label23.setBackground(new java.awt.Color(102, 255, 255));
+        label23.setBackground(new java.awt.Color(255, 255, 247));
         label23.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label23.setToolTipText("");
+        label23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label23.setMaximumSize(new java.awt.Dimension(40, 40));
         label23.setMinimumSize(new java.awt.Dimension(40, 40));
+        label23.setOpaque(true);
         label23.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label23);
         label23.getAccessibleContext().setAccessibleName("label23");
 
-        label24.setBackground(new java.awt.Color(102, 255, 255));
+        label24.setBackground(new java.awt.Color(255, 255, 247));
         label24.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label24.setToolTipText("");
+        label24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label24.setMaximumSize(new java.awt.Dimension(40, 40));
         label24.setMinimumSize(new java.awt.Dimension(40, 40));
+        label24.setOpaque(true);
         label24.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label24);
 
-        label25.setBackground(new java.awt.Color(102, 255, 255));
+        label25.setBackground(new java.awt.Color(255, 255, 247));
         label25.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label25.setToolTipText("");
+        label25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label25.setMaximumSize(new java.awt.Dimension(40, 40));
         label25.setMinimumSize(new java.awt.Dimension(40, 40));
+        label25.setOpaque(true);
         label25.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label25);
 
-        label31.setBackground(new java.awt.Color(102, 255, 255));
+        label31.setBackground(new java.awt.Color(255, 255, 247));
         label31.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label31.setToolTipText("");
+        label31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label31.setMaximumSize(new java.awt.Dimension(40, 40));
         label31.setMinimumSize(new java.awt.Dimension(40, 40));
+        label31.setOpaque(true);
         label31.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label31);
 
-        label32.setBackground(new java.awt.Color(102, 255, 255));
+        label32.setBackground(new java.awt.Color(255, 255, 247));
         label32.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label32.setToolTipText("");
+        label32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label32.setMaximumSize(new java.awt.Dimension(40, 40));
         label32.setMinimumSize(new java.awt.Dimension(40, 40));
+        label32.setOpaque(true);
         label32.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label32);
 
-        label33.setBackground(new java.awt.Color(102, 255, 255));
+        label33.setBackground(new java.awt.Color(255, 255, 247));
         label33.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label33.setToolTipText("");
+        label33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label33.setMaximumSize(new java.awt.Dimension(40, 40));
         label33.setMinimumSize(new java.awt.Dimension(40, 40));
+        label33.setOpaque(true);
         label33.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label33);
 
-        label34.setBackground(new java.awt.Color(102, 255, 255));
+        label34.setBackground(new java.awt.Color(255, 255, 247));
         label34.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label34.setToolTipText("");
+        label34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label34.setMaximumSize(new java.awt.Dimension(40, 40));
         label34.setMinimumSize(new java.awt.Dimension(40, 40));
+        label34.setOpaque(true);
         label34.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label34);
 
-        label35.setBackground(new java.awt.Color(102, 255, 255));
+        label35.setBackground(new java.awt.Color(255, 255, 247));
         label35.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label35.setToolTipText("");
+        label35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label35.setMaximumSize(new java.awt.Dimension(40, 40));
         label35.setMinimumSize(new java.awt.Dimension(40, 40));
+        label35.setOpaque(true);
         label35.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label35);
 
-        label41.setBackground(new java.awt.Color(102, 255, 255));
+        label41.setBackground(new java.awt.Color(255, 255, 247));
         label41.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label41.setToolTipText("");
+        label41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label41.setMaximumSize(new java.awt.Dimension(40, 40));
         label41.setMinimumSize(new java.awt.Dimension(40, 40));
+        label41.setOpaque(true);
         label41.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label41);
 
-        label42.setBackground(new java.awt.Color(102, 255, 255));
+        label42.setBackground(new java.awt.Color(255, 255, 247));
         label42.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label42.setToolTipText("");
+        label42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label42.setMaximumSize(new java.awt.Dimension(40, 40));
         label42.setMinimumSize(new java.awt.Dimension(40, 40));
+        label42.setOpaque(true);
         label42.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label42);
 
-        label43.setBackground(new java.awt.Color(102, 255, 255));
+        label43.setBackground(new java.awt.Color(255, 255, 247));
         label43.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label43.setToolTipText("");
+        label43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label43.setMaximumSize(new java.awt.Dimension(40, 40));
         label43.setMinimumSize(new java.awt.Dimension(40, 40));
+        label43.setOpaque(true);
         label43.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label43);
 
-        label44.setBackground(new java.awt.Color(102, 255, 255));
+        label44.setBackground(new java.awt.Color(255, 255, 247));
         label44.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label44.setToolTipText("");
+        label44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label44.setMaximumSize(new java.awt.Dimension(40, 40));
         label44.setMinimumSize(new java.awt.Dimension(40, 40));
+        label44.setOpaque(true);
         label44.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label44);
 
-        label45.setBackground(new java.awt.Color(102, 255, 255));
+        label45.setBackground(new java.awt.Color(255, 255, 247));
         label45.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label45.setToolTipText("");
+        label45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label45.setMaximumSize(new java.awt.Dimension(40, 40));
         label45.setMinimumSize(new java.awt.Dimension(40, 40));
+        label45.setOpaque(true);
         label45.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label45);
 
-        label51.setBackground(new java.awt.Color(102, 255, 255));
+        label51.setBackground(new java.awt.Color(255, 255, 247));
         label51.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label51.setOpaque(true);
         letrasPanel.add(label51);
 
-        label52.setBackground(new java.awt.Color(102, 255, 255));
+        label52.setBackground(new java.awt.Color(255, 255, 247));
         label52.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label52.setOpaque(true);
         letrasPanel.add(label52);
 
-        label53.setBackground(new java.awt.Color(102, 255, 255));
+        label53.setBackground(new java.awt.Color(255, 255, 247));
         label53.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label53.setOpaque(true);
         letrasPanel.add(label53);
 
-        label54.setBackground(new java.awt.Color(102, 255, 255));
+        label54.setBackground(new java.awt.Color(255, 255, 247));
         label54.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label54.setOpaque(true);
         letrasPanel.add(label54);
 
-        label55.setBackground(new java.awt.Color(102, 255, 255));
+        label55.setBackground(new java.awt.Color(255, 255, 247));
         label55.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label55.setOpaque(true);
         letrasPanel.add(label55);
 
         palabrasPanel.add(letrasPanel);
@@ -353,9 +404,15 @@ public class WordleGUI extends javax.swing.JFrame {
 
         palabraIntentar.setColumns(1);
         palabraIntentar.setRows(1);
-        palabraIntentar.setTabSize(5);
+        palabraIntentar.setTabSize(1);
         palabraIntentar.setMaximumSize(new java.awt.Dimension(10, 10));
         palabraIntentar.setMinimumSize(new java.awt.Dimension(10, 10));
+        palabraIntentar.setName(""); // NOI18N
+        palabraIntentar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                palabraIntentarKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -490,24 +547,61 @@ public class WordleGUI extends javax.swing.JFrame {
         
         cont = 1;
     }//GEN-LAST:event_botonReinicioActionPerformed
+
+    private void palabraIntentarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraIntentarKeyTyped
+        
+        if(this.palabraIntentar.getText().length()>4){
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_palabraIntentarKeyTyped
     
     private void completarLabels(String palabra, boolean ganar){
-        StringBuilder sb = new StringBuilder(palabra);
         
+        StringBuilder sb = new StringBuilder(palabra);
+        StringBuilder sbA = new StringBuilder(palabraA);
+        System.out.println(sb);
+        System.out.println(sbA);
         if(ganar){
             JLabel[] label = labels[cont-1];
             for(int j  = 0; j < label.length; j++){
                 JLabel jLabel = label[j];
-                jLabel.setText(sb.substring(j, j+1));
+                String letra = palabra.charAt(j) + "";
+                jLabel.setText(letra);
                 jLabel.setForeground(VERDE);
             } 
         }else{
             JLabel[] label = labels[cont-1];
             for(int j  = 0; j < label.length; j++){
                 JLabel jLabel = label[j];
-                jLabel.setText(sb.substring(j, j+1));
-                //jLabel.setForeground(Color.GREEN);
+                String letra = palabra.charAt(j) + "";
+                jLabel.setText(letra);
+                jLabel.setForeground(colorLetra(sb,sbA,j));
+                
             } 
+        }
+        
+        
+    }
+    
+    
+    private Color colorLetra(StringBuilder sb,StringBuilder sbA,int j){
+        System.out.println(sb);
+        System.out.println(sbA);
+        if(sb.substring(j,j+1).equals(sbA.substring(j,j+1))){
+            sb.replace(j, j+1," ");
+            sbA.replace(j, j+1," ");
+            
+            return VERDE;
+        }
+        else if(sbA.indexOf(sb.substring(j,j+1))!=-1){
+            sbA.replace(sbA.indexOf(sb.substring(j,j+1)), sbA.indexOf(sb.substring(j,j+1))+1," ");
+            sb.replace(j,j+1," ");
+            return NARANJA;
+        }else{
+            
+            return Color.BLACK;
+            
         }
         
     }
