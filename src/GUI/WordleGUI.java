@@ -18,10 +18,12 @@ import javax.swing.JLabel;
  */
 public class WordleGUI extends javax.swing.JFrame {
     
-        
+    private final Color VERDE = new Color(51,102,0);
+    
     private IWordle motor;
     private int cont = 1;
     private String palabraA;
+    
     
     private static final int MAX_INTENTOS = 5 ;
     private static final int TAMAÑO_PALABRA = 5;
@@ -429,14 +431,20 @@ public class WordleGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarBotonActionPerformed
-            String palabra = palabraIntentar.getText().toUpperCase();
+            
+        boolean ganar;
+        String palabra = palabraIntentar.getText().toUpperCase();
+            
+            
             if(comprobarPalabra(palabra)){
                 if(palabra.equalsIgnoreCase(palabraA)){
-                    completarLabels(palabra);
+                    ganar = true;
+                    completarLabels(palabra,ganar);
                     finalizarJuego();
                     this.ganarLabel.setText("Has ganado en "+cont+" intentos");
                 }else{
-                    completarLabels(palabra);
+                    ganar = false;
+                    completarLabels(palabra,ganar);
                     if(cont==5){
                         
                         this.ganarLabel.setText("Has perdido");
@@ -444,8 +452,6 @@ public class WordleGUI extends javax.swing.JFrame {
                     }
                 }
             cont++;  
-            }else{
-                
             }
             this.palabraIntentar.setText("");
             
@@ -477,20 +483,30 @@ public class WordleGUI extends javax.swing.JFrame {
         cont = 1;
     }//GEN-LAST:event_botonReinicioActionPerformed
     
-    private void completarLabels(String palabra){
+    private void completarLabels(String palabra, boolean ganar){
         StringBuilder sb = new StringBuilder(palabra);
         
-        JLabel[] label = labels[cont-1];
-        for(int j  = 0; j < label.length; j++){
-            JLabel jLabel = label[j];
-            jLabel.setText(sb.substring(j, j+1));
+        if(ganar){
+            JLabel[] label = labels[cont-1];
+            for(int j  = 0; j < label.length; j++){
+                JLabel jLabel = label[j];
+                jLabel.setText(sb.substring(j, j+1));
+                jLabel.setForeground(VERDE);
+            } 
+        }else{
+            JLabel[] label = labels[cont-1];
+            for(int j  = 0; j < label.length; j++){
+                JLabel jLabel = label[j];
+                jLabel.setText(sb.substring(j, j+1));
+                //jLabel.setForeground(Color.GREEN);
+            } 
         }
+        
     }
     
     private boolean comprobarPalabra(String p){
         if(p.matches("[a-zA-Z]{5}")){
-            mensajeError.setForeground(Color.black);
-            mensajeError.setText("Palabra Introducida correctamente");
+            
             return true;
         }
         else{
