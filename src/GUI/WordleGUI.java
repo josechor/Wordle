@@ -433,15 +433,14 @@ public class WordleGUI extends javax.swing.JFrame {
             if(comprobarPalabra(palabra)){
                 if(palabra.equalsIgnoreCase(palabraA)){
                     completarLabels(palabra);
-                    this.enviarBoton.setEnabled(false);
-                    this.palabraIntentar.setEditable(false);
+                    finalizarJuego();
                     this.ganarLabel.setText("Has ganado en "+cont+" intentos");
                 }else{
                     completarLabels(palabra);
                     if(cont==5){
+                        
                         this.ganarLabel.setText("Has perdido");
-                        this.enviarBoton.setEnabled(false);
-                        this.palabraIntentar.setEditable(false);
+                        
                     }
                 }
                 
@@ -451,7 +450,11 @@ public class WordleGUI extends javax.swing.JFrame {
             this.palabraIntentar.setText("");
             cont++;
     }//GEN-LAST:event_enviarBotonActionPerformed
-
+    
+    private void finalizarJuego(){
+        this.enviarBoton.setEnabled(false);
+        this.palabraIntentar.setEditable(false);
+    }
     private void botonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReinicioActionPerformed
         palabraA = motor.palabraAleatoria();
         System.out.println(palabraA);
