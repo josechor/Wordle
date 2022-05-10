@@ -506,7 +506,7 @@ public class WordleGUI extends javax.swing.JFrame {
     
     private boolean comprobarPalabra(String p){
         if(p.matches("[a-zA-Z]{5}")){
-            
+            this.mensajeError.setText("");
             return true;
         }
         else{
