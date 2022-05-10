@@ -443,12 +443,12 @@ public class WordleGUI extends javax.swing.JFrame {
                         
                     }
                 }
-                
+            cont++;  
             }else{
                 
             }
             this.palabraIntentar.setText("");
-            cont++;
+            
     }//GEN-LAST:event_enviarBotonActionPerformed
     
     private void finalizarJuego(){
