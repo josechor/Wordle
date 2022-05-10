@@ -8,17 +8,48 @@ package GUI;
 import Clases.IWordle;
 import Clases.motorTest;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
 
 /**
  *
  * @author alumno
  */
 public class WordleGUI extends javax.swing.JFrame {
-
+    
+        
     private IWordle motor;
+    private int cont = 1;
+    private String palabraA;
+    
+    private static final int MAX_INTENTOS = 5 ;
+    private static final int TAMAÑO_PALABRA = 5;
+    private final javax.swing.JLabel[][] labels = new javax.swing.JLabel[MAX_INTENTOS][TAMAÑO_PALABRA];
+    
     public WordleGUI() {
-        motor = new motorTest();
         initComponents();
+        motor = new motorTest();
+        palabraA = motor.palabraAleatoria();
+        inicializarLabels();
+        
+        
+    }
+    
+    public final void inicializarLabels(){
+        for(int i  = 1;i<=MAX_INTENTOS; i++){
+            for(int j = 1;j<=TAMAÑO_PALABRA;j++){
+                try{
+                    String nombreLabel = "label"+i+""+j;
+                    
+                    System.out.println(nombreLabel);
+                    javax.swing.JLabel aux = (javax.swing.JLabel)this.getClass().getDeclaredField(nombreLabel).get(this);
+                    labels[i-1][j-1] = aux;                   
+                } catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException ex) {
+                    Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
 
     /**
@@ -29,7 +60,6 @@ public class WordleGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         BotonMotorGrupo = new javax.swing.ButtonGroup();
         Main = new javax.swing.JPanel();
@@ -55,6 +85,11 @@ public class WordleGUI extends javax.swing.JFrame {
         label43 = new javax.swing.JLabel();
         label44 = new javax.swing.JLabel();
         label45 = new javax.swing.JLabel();
+        label51 = new javax.swing.JLabel();
+        label52 = new javax.swing.JLabel();
+        label53 = new javax.swing.JLabel();
+        label54 = new javax.swing.JLabel();
+        label55 = new javax.swing.JLabel();
         botonesPanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -63,7 +98,7 @@ public class WordleGUI extends javax.swing.JFrame {
         enviarBoton = new javax.swing.JButton();
         palabraIntentar = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
+        ganarLabel = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         mensajeError = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -82,8 +117,9 @@ public class WordleGUI extends javax.swing.JFrame {
         letrasPanel.setMaximumSize(new java.awt.Dimension(250, 250));
         letrasPanel.setMinimumSize(new java.awt.Dimension(250, 250));
         letrasPanel.setPreferredSize(new java.awt.Dimension(250, 250));
-        letrasPanel.setLayout(new java.awt.GridLayout(4, 4, 4, 4));
+        letrasPanel.setLayout(new java.awt.GridLayout(5, 5, 4, 4));
 
+        label11.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label11.setText("A");
         label11.setToolTipText("");
@@ -93,6 +129,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label11.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label11);
 
+        label12.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label12.setText("A");
         label12.setToolTipText("");
@@ -101,6 +138,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label12.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label12);
 
+        label13.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label13.setText("A");
         label13.setToolTipText("");
@@ -109,6 +147,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label13.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label13);
 
+        label14.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label14.setText("A");
         label14.setToolTipText("");
@@ -117,6 +156,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label14.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label14);
 
+        label15.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label15.setText("A");
         label15.setToolTipText("");
@@ -125,6 +165,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label15.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label15);
 
+        label21.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label21.setText("A");
         label21.setToolTipText("");
@@ -133,6 +174,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label21.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label21);
 
+        label22.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label22.setText("A");
         label22.setToolTipText("");
@@ -141,6 +183,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label22.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label22);
 
+        label23.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label23.setText("A");
         label23.setToolTipText("");
@@ -150,6 +193,7 @@ public class WordleGUI extends javax.swing.JFrame {
         letrasPanel.add(label23);
         label23.getAccessibleContext().setAccessibleName("label23");
 
+        label24.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label24.setText("A");
         label24.setToolTipText("");
@@ -158,6 +202,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label24.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label24);
 
+        label25.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label25.setText("A");
         label25.setToolTipText("");
@@ -166,6 +211,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label25.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label25);
 
+        label31.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label31.setText("A");
         label31.setToolTipText("");
@@ -174,6 +220,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label31.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label31);
 
+        label32.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label32.setText("A");
         label32.setToolTipText("");
@@ -182,6 +229,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label32.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label32);
 
+        label33.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label33.setText("A");
         label33.setToolTipText("");
@@ -190,6 +238,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label33.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label33);
 
+        label34.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label34.setText("A");
         label34.setToolTipText("");
@@ -198,6 +247,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label34.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label34);
 
+        label35.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label35.setText("A");
         label35.setToolTipText("");
@@ -206,6 +256,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label35.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label35);
 
+        label41.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label41.setText("A");
         label41.setToolTipText("");
@@ -214,6 +265,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label41.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label41);
 
+        label42.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label42.setText("A");
         label42.setToolTipText("");
@@ -222,6 +274,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label42.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label42);
 
+        label43.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label43.setText("A");
         label43.setToolTipText("");
@@ -230,6 +283,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label43.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label43);
 
+        label44.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label44.setText("A");
         label44.setToolTipText("");
@@ -238,6 +292,7 @@ public class WordleGUI extends javax.swing.JFrame {
         label44.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label44);
 
+        label45.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         label45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label45.setText("A");
         label45.setToolTipText("");
@@ -245,6 +300,31 @@ public class WordleGUI extends javax.swing.JFrame {
         label45.setMinimumSize(new java.awt.Dimension(40, 40));
         label45.setPreferredSize(new java.awt.Dimension(40, 40));
         letrasPanel.add(label45);
+
+        label51.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label51.setText("A");
+        letrasPanel.add(label51);
+
+        label52.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label52.setText("A");
+        letrasPanel.add(label52);
+
+        label53.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label53.setText("A");
+        letrasPanel.add(label53);
+
+        label54.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label54.setText("A");
+        letrasPanel.add(label54);
+
+        label55.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label55.setText("A");
+        letrasPanel.add(label55);
 
         palabrasPanel.add(letrasPanel);
 
@@ -301,12 +381,12 @@ public class WordleGUI extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jLabel24.setText("has ganado a la 2");
-        jPanel3.add(jLabel24, new java.awt.GridBagConstraints());
+        ganarLabel.setText("has ganado a la 2");
+        jPanel3.add(ganarLabel, new java.awt.GridBagConstraints());
 
         botonesPanel.add(jPanel3);
 
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         mensajeError.setText("jLabel25");
         jPanel6.add(mensajeError);
@@ -352,25 +432,48 @@ public class WordleGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarBotonActionPerformed
-            String palabra = palabraIntentar.getText().toLowerCase();
+            String palabra = palabraIntentar.getText().toUpperCase();
             if(comprobarPalabra(palabra)){
+                if(palabra.equalsIgnoreCase(palabraA)){
+                    completarLabels(palabra);
+                    this.enviarBoton.setEnabled(false);
+                    this.palabraIntentar.setEditable(false);
+                    this.ganarLabel.setText("Has ganado en "+cont+" intentos");
+                }else{
+                    completarLabels(palabra);
+                    if(cont==5){
+                        this.ganarLabel.setText("Has perdido");
+                        this.enviarBoton.setEnabled(false);
+                        this.palabraIntentar.setEditable(false);
+                    }
+                }
                 
             }else{
                 
             }
+            cont++;
     }//GEN-LAST:event_enviarBotonActionPerformed
     
+    private void completarLabels(String palabra){
+        StringBuilder sb = new StringBuilder(palabra);
+        
+        JLabel[] label = labels[cont-1];
+        for(int j  = 0; j < label.length; j++){
+            JLabel jLabel = label[j];
+            jLabel.setText(sb.substring(j, j+1));
+        }
+    }
     
     private boolean comprobarPalabra(String p){
-        if(p.matches("[a-z]{5}")){
+        if(p.matches("[a-zA-Z]{5}")){
             mensajeError.setForeground(Color.black);
             mensajeError.setText("Palabra Introducida correctamente");
-            return false;
+            return true;
         }
         else{
             mensajeError.setForeground(Color.red);
             mensajeError.setText("Formato de palabra no valido");
-            return true;
+            return false;
         }
     }
     
@@ -415,8 +518,8 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JPanel Main;
     private javax.swing.JPanel botonesPanel;
     private javax.swing.JButton enviarBoton;
+    private javax.swing.JLabel ganarLabel;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -448,6 +551,11 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JLabel label43;
     private javax.swing.JLabel label44;
     private javax.swing.JLabel label45;
+    private javax.swing.JLabel label51;
+    private javax.swing.JLabel label52;
+    private javax.swing.JLabel label53;
+    private javax.swing.JLabel label54;
+    private javax.swing.JLabel label55;
     private javax.swing.JPanel letrasPanel;
     private javax.swing.JLabel mensajeError;
     private javax.swing.JTextArea palabraIntentar;

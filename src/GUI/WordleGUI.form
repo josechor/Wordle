@@ -108,14 +108,17 @@
               </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                <Property name="columns" type="int" value="4"/>
+                <Property name="columns" type="int" value="5"/>
                 <Property name="horizontalGap" type="int" value="4"/>
-                <Property name="rows" type="int" value="4"/>
+                <Property name="rows" type="int" value="5"/>
                 <Property name="verticalGap" type="int" value="4"/>
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="label11">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -133,6 +136,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label12">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -149,6 +155,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label13">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -165,6 +174,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label14">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -181,6 +193,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label15">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -197,6 +212,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label21">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -213,6 +231,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label22">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -229,6 +250,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label23">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -248,6 +272,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label24">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -264,6 +291,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label25">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -280,6 +310,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label31">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -296,6 +329,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label32">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -312,6 +348,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label33">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -328,6 +367,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label34">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -344,6 +386,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label35">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -360,6 +405,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label41">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -376,6 +424,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label42">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -392,6 +443,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label43">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -408,6 +462,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label44">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -424,6 +481,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="label45">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -436,6 +496,51 @@
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[40, 40]"/>
                     </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label51">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="A"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label52">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="A"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label53">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="A"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label54">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="A"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label55">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial Black" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="A"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -533,7 +638,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel24">
+                <Component class="javax.swing.JLabel" name="ganarLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="has ganado a la 2"/>
                   </Properties>

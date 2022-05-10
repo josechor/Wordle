@@ -36,8 +36,12 @@ public class motorTest implements IWordle{
     
     @Override
     public String palabraAleatoria() {
-        int a = (int) (Math.random() * ((palabras.size()-1) - 0));
-        return palabras.get(a); 
+        int a = (int) (Math.random() * ((3) - 0));
+        if(a == 1){
+            return "CICLO";
+        }else{
+            return "CIELO";
+        }
     }
 
     @Override
