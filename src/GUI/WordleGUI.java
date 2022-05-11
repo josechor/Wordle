@@ -36,7 +36,7 @@ public class WordleGUI extends javax.swing.JFrame {
     public WordleGUI() {
         initComponents();
         
-        motor = new motorDeporte();
+        motor = new motorTest();
         palabraA = motor.palabraAleatoria().toUpperCase();
         inicializarLabels();
         System.out.println(palabraA);
@@ -114,8 +114,8 @@ public class WordleGUI extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         botonReinicio = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        motorTestBoton = new javax.swing.JRadioButtonMenuItem();
+        motorFileBoton = new javax.swing.JRadioButtonMenuItem();
         motorDeporte = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -500,17 +500,32 @@ public class WordleGUI extends javax.swing.JFrame {
 
         jMenu2.setText("Motor");
 
-        BotonMotorGrupo.add(jRadioButtonMenuItem1);
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("Test");
-        jMenu2.add(jRadioButtonMenuItem1);
+        BotonMotorGrupo.add(motorTestBoton);
+        motorTestBoton.setSelected(true);
+        motorTestBoton.setText("Test");
+        motorTestBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorTestBotonActionPerformed(evt);
+            }
+        });
+        jMenu2.add(motorTestBoton);
 
-        BotonMotorGrupo.add(jRadioButtonMenuItem2);
-        jRadioButtonMenuItem2.setText("File");
-        jMenu2.add(jRadioButtonMenuItem2);
+        BotonMotorGrupo.add(motorFileBoton);
+        motorFileBoton.setText("File");
+        motorFileBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorFileBotonActionPerformed(evt);
+            }
+        });
+        jMenu2.add(motorFileBoton);
 
         BotonMotorGrupo.add(motorDeporte);
         motorDeporte.setText("Deportle");
+        motorDeporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorDeporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(motorDeporte);
 
         jMenuBar1.add(jMenu2);
@@ -569,6 +584,11 @@ public class WordleGUI extends javax.swing.JFrame {
         this.palabraIntentar.setEditable(false);
     }
     private void botonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReinicioActionPerformed
+        reiniciar();
+        
+    }//GEN-LAST:event_botonReinicioActionPerformed
+    
+    private void reiniciar(){
         palabraA = motor.palabraAleatoria().toUpperCase();
         System.out.println(palabraA);
         
@@ -589,9 +609,8 @@ public class WordleGUI extends javax.swing.JFrame {
         this.palabraIntentar.setEditable(true);
         
         cont = 1;
-        
-    }//GEN-LAST:event_botonReinicioActionPerformed
-
+    }
+    
     private void palabraIntentarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraIntentarKeyTyped
         
         if(this.palabraIntentar.getText().length()>4){
@@ -599,6 +618,29 @@ public class WordleGUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_palabraIntentarKeyTyped
+
+    private void motorTestBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorTestBotonActionPerformed
+        seleccionarMotor();
+    }//GEN-LAST:event_motorTestBotonActionPerformed
+
+    private void motorFileBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorFileBotonActionPerformed
+        seleccionarMotor();
+    }//GEN-LAST:event_motorFileBotonActionPerformed
+
+    private void motorDeporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorDeporteActionPerformed
+        seleccionarMotor();
+    }//GEN-LAST:event_motorDeporteActionPerformed
+    
+    private void seleccionarMotor(){
+        if(this.motorDeporte.isSelected()){
+            motor = new motorDeporte();
+        }else if(this.motorTestBoton.isSelected()){
+            motor = new motorTest();
+        }else if(this.motorFileBoton.isSelected()){
+            motor = new motorDeporte();
+        }
+        reiniciar();
+    }
     
     private void completarLabels(String palabra, boolean ganar){
         
@@ -723,8 +765,6 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JLabel label11;
     private javax.swing.JLabel label12;
     private javax.swing.JLabel label13;
@@ -755,6 +795,8 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JPanel letrasPanel;
     private javax.swing.JLabel mensajeError;
     private javax.swing.JRadioButtonMenuItem motorDeporte;
+    private javax.swing.JRadioButtonMenuItem motorFileBoton;
+    private javax.swing.JRadioButtonMenuItem motorTestBoton;
     private javax.swing.JTextArea palabraIntentar;
     private javax.swing.JLabel palabraPierdes;
     private javax.swing.JPanel palabrasPanel;
