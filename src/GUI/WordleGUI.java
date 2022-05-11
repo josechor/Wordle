@@ -71,10 +71,10 @@ public class WordleGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         BotonMotorGrupo = new javax.swing.ButtonGroup();
         Main = new javax.swing.JPanel();
-        nombreMotor = new javax.swing.JPanel();
         palabrasPanel = new javax.swing.JPanel();
         letrasPanel = new javax.swing.JPanel();
         label11 = new javax.swing.JLabel();
@@ -114,6 +114,8 @@ public class WordleGUI extends javax.swing.JFrame {
         ganarLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         mensajeError = new javax.swing.JLabel();
+        motorNombre = new javax.swing.JPanel();
+        motorNombreLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         botonReinicio = new javax.swing.JMenuItem();
@@ -126,20 +128,8 @@ public class WordleGUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         Main.setBackground(new java.awt.Color(255, 255, 255));
+        Main.setOpaque(false);
         Main.setLayout(new java.awt.BorderLayout());
-
-        javax.swing.GroupLayout nombreMotorLayout = new javax.swing.GroupLayout(nombreMotor);
-        nombreMotor.setLayout(nombreMotorLayout);
-        nombreMotorLayout.setHorizontalGroup(
-            nombreMotorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-        );
-        nombreMotorLayout.setVerticalGroup(
-            nombreMotorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 38, Short.MAX_VALUE)
-        );
-
-        Main.add(nombreMotor, java.awt.BorderLayout.PAGE_END);
 
         palabrasPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
@@ -432,7 +422,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         palabrasPanel.add(letrasPanel);
 
-        Main.add(palabrasPanel, java.awt.BorderLayout.PAGE_START);
+        Main.add(palabrasPanel, java.awt.BorderLayout.CENTER);
 
         botonesPanel.setPreferredSize(new java.awt.Dimension(500, 230));
         botonesPanel.setLayout(new java.awt.GridLayout(2, 2));
@@ -481,7 +471,7 @@ public class WordleGUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(palabraIntentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enviarBoton))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         botonesPanel.add(jPanel4);
@@ -503,7 +493,38 @@ public class WordleGUI extends javax.swing.JFrame {
 
         botonesPanel.add(jPanel6);
 
-        Main.add(botonesPanel, java.awt.BorderLayout.CENTER);
+        Main.add(botonesPanel, java.awt.BorderLayout.PAGE_END);
+
+        motorNombre.setMaximumSize(new java.awt.Dimension(100, 100));
+        motorNombre.setPreferredSize(new java.awt.Dimension(200, 50));
+
+        motorNombreLabel.setBackground(new java.awt.Color(255, 255, 255));
+        motorNombreLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        motorNombreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        motorNombreLabel.setText("Test");
+
+        javax.swing.GroupLayout motorNombreLayout = new javax.swing.GroupLayout(motorNombre);
+        motorNombre.setLayout(motorNombreLayout);
+        motorNombreLayout.setHorizontalGroup(
+            motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(motorNombreLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(motorNombreLabel)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        motorNombreLayout.setVerticalGroup(
+            motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(motorNombreLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(motorNombreLabel)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        Main.add(motorNombre, java.awt.BorderLayout.PAGE_START);
 
         jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -668,10 +689,13 @@ public class WordleGUI extends javax.swing.JFrame {
     private void seleccionarMotor(){
         if(this.motorDeporte.isSelected()){
             motor = new motorDeporte();
+            this.motorNombreLabel.setText("Deportle");
         }else if(this.motorTestBoton.isSelected()){
             motor = new motorTest();
+            this.motorNombreLabel.setText("Test");
         }else if(this.motorFileBoton.isSelected()){
             motor = new motorDeporte();
+            this.motorNombreLabel.setText("File");
         }
         reiniciar();
     }
@@ -844,8 +868,9 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JLabel mensajeError;
     private javax.swing.JRadioButtonMenuItem motorDeporte;
     private javax.swing.JRadioButtonMenuItem motorFileBoton;
+    private javax.swing.JPanel motorNombre;
+    private javax.swing.JLabel motorNombreLabel;
     private javax.swing.JRadioButtonMenuItem motorTestBoton;
-    private javax.swing.JPanel nombreMotor;
     private javax.swing.JTextArea palabraIntentar;
     private javax.swing.JPanel palabrasPanel;
     // End of variables declaration//GEN-END:variables
