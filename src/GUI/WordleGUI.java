@@ -75,6 +75,8 @@ public class WordleGUI extends javax.swing.JFrame {
 
         BotonMotorGrupo = new javax.swing.ButtonGroup();
         Main = new javax.swing.JPanel();
+        motorNombre = new javax.swing.JPanel();
+        motorNombreLabel = new javax.swing.JLabel();
         palabrasPanel = new javax.swing.JPanel();
         letrasPanel = new javax.swing.JPanel();
         label11 = new javax.swing.JLabel();
@@ -114,8 +116,6 @@ public class WordleGUI extends javax.swing.JFrame {
         ganarLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         mensajeError = new javax.swing.JLabel();
-        motorNombre = new javax.swing.JPanel();
-        motorNombreLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         botonReinicio = new javax.swing.JMenuItem();
@@ -131,6 +131,38 @@ public class WordleGUI extends javax.swing.JFrame {
         Main.setOpaque(false);
         Main.setLayout(new java.awt.BorderLayout());
 
+        motorNombre.setMaximumSize(new java.awt.Dimension(100, 100));
+        motorNombre.setPreferredSize(new java.awt.Dimension(200, 50));
+
+        motorNombreLabel.setBackground(new java.awt.Color(255, 255, 255));
+        motorNombreLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        motorNombreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        motorNombreLabel.setText("Test");
+
+        javax.swing.GroupLayout motorNombreLayout = new javax.swing.GroupLayout(motorNombre);
+        motorNombre.setLayout(motorNombreLayout);
+        motorNombreLayout.setHorizontalGroup(
+            motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(motorNombreLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(motorNombreLabel)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        motorNombreLayout.setVerticalGroup(
+            motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(motorNombreLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(motorNombreLabel)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        Main.add(motorNombre, java.awt.BorderLayout.PAGE_START);
+
+        palabrasPanel.setMinimumSize(new java.awt.Dimension(250, 300));
         palabrasPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         letrasPanel.setMaximumSize(new java.awt.Dimension(250, 250));
@@ -424,6 +456,8 @@ public class WordleGUI extends javax.swing.JFrame {
 
         Main.add(palabrasPanel, java.awt.BorderLayout.CENTER);
 
+        botonesPanel.setMaximumSize(new java.awt.Dimension(500, 230));
+        botonesPanel.setMinimumSize(new java.awt.Dimension(500, 230));
         botonesPanel.setPreferredSize(new java.awt.Dimension(500, 230));
         botonesPanel.setLayout(new java.awt.GridLayout(2, 2));
 
@@ -495,37 +529,6 @@ public class WordleGUI extends javax.swing.JFrame {
 
         Main.add(botonesPanel, java.awt.BorderLayout.PAGE_END);
 
-        motorNombre.setMaximumSize(new java.awt.Dimension(100, 100));
-        motorNombre.setPreferredSize(new java.awt.Dimension(200, 50));
-
-        motorNombreLabel.setBackground(new java.awt.Color(255, 255, 255));
-        motorNombreLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        motorNombreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        motorNombreLabel.setText("Test");
-
-        javax.swing.GroupLayout motorNombreLayout = new javax.swing.GroupLayout(motorNombre);
-        motorNombre.setLayout(motorNombreLayout);
-        motorNombreLayout.setHorizontalGroup(
-            motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-            .addGroup(motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(motorNombreLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(motorNombreLabel)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        motorNombreLayout.setVerticalGroup(
-            motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-            .addGroup(motorNombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(motorNombreLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(motorNombreLabel)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        Main.add(motorNombre, java.awt.BorderLayout.PAGE_START);
-
         jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
 
         jMenu1.setText("Reiniciar");
@@ -578,7 +581,7 @@ public class WordleGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(Main, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
