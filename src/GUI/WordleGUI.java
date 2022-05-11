@@ -11,6 +11,7 @@ import Clases.motorDeporte;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 /**
@@ -22,7 +23,7 @@ public class WordleGUI extends javax.swing.JFrame {
     private final Color VERDE = new Color(51,102,0);
     private final Color NARANJA = new Color(204,153,0);
     private final Color ROJO = new Color(204,0,0);
-    
+   
     
     private IWordle motor;
     private int cont = 1;
@@ -39,6 +40,8 @@ public class WordleGUI extends javax.swing.JFrame {
         motor = new motorTest();
         palabraA = motor.palabraAleatoria().toUpperCase();
         inicializarLabels();
+         this.getContentPane().setBackground(Color.orange);
+        this.palabraIntentar.setBorder(BorderFactory.createLineBorder(Color.white));
         System.out.println(palabraA);
         
         
@@ -71,6 +74,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         BotonMotorGrupo = new javax.swing.ButtonGroup();
         Main = new javax.swing.JPanel();
+        nombreMotor = new javax.swing.JPanel();
         palabrasPanel = new javax.swing.JPanel();
         letrasPanel = new javax.swing.JPanel();
         label11 = new javax.swing.JLabel();
@@ -106,8 +110,8 @@ public class WordleGUI extends javax.swing.JFrame {
         enviarBoton = new javax.swing.JButton();
         palabraIntentar = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
-        ganarLabel = new javax.swing.JLabel();
-        palabraPierdes = new javax.swing.JLabel();
+        ganarLabel1 = new javax.swing.JLabel();
+        ganarLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         mensajeError = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -119,9 +123,23 @@ public class WordleGUI extends javax.swing.JFrame {
         motorDeporte = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        Main.setBackground(new java.awt.Color(255, 102, 204));
+        Main.setBackground(new java.awt.Color(255, 255, 255));
         Main.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout nombreMotorLayout = new javax.swing.GroupLayout(nombreMotor);
+        nombreMotor.setLayout(nombreMotorLayout);
+        nombreMotorLayout.setHorizontalGroup(
+            nombreMotorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+        );
+        nombreMotorLayout.setVerticalGroup(
+            nombreMotorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
+
+        Main.add(nombreMotor, java.awt.BorderLayout.PAGE_END);
 
         palabrasPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
@@ -425,6 +443,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         botonesPanel.add(jPanel5);
 
+        enviarBoton.setBackground(new java.awt.Color(200, 200, 200));
         enviarBoton.setText("Enviar");
         enviarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -462,18 +481,18 @@ public class WordleGUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(palabraIntentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enviarBoton))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         botonesPanel.add(jPanel4);
 
-        jPanel3.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel3.setLayout(new java.awt.GridLayout(0, 1, 10, 0));
 
-        ganarLabel.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jPanel3.add(ganarLabel);
+        ganarLabel1.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jPanel3.add(ganarLabel1);
 
-        palabraPierdes.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jPanel3.add(palabraPierdes);
+        ganarLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jPanel3.add(ganarLabel2);
 
         botonesPanel.add(jPanel3);
 
@@ -485,6 +504,8 @@ public class WordleGUI extends javax.swing.JFrame {
         botonesPanel.add(jPanel6);
 
         Main.add(botonesPanel, java.awt.BorderLayout.CENTER);
+
+        jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
 
         jMenu1.setText("Reiniciar");
 
@@ -557,20 +578,13 @@ public class WordleGUI extends javax.swing.JFrame {
                     ganar = true;
                     completarLabels(palabra,ganar);
                     finalizarJuego();
-                    this.ganarLabel.setForeground(VERDE);
-                    this.ganarLabel.setText("Has ganado en "+cont+" intentos");
+                    ganar(); 
                 }else{
                     ganar = false;
                     completarLabels(palabra,ganar);
                     if(cont==5){
                         finalizarJuego();
-                        this.ganarLabel.setForeground(ROJO);
-                        this.ganarLabel.setText("Has perdido!!!");
-                        this.palabraPierdes.setForeground(ROJO);
-                        this.palabraPierdes.setText("La palabra correcta: "+palabraA);
-                                
-                        
-                        
+                        perder();
                     }
                 }
             cont++;  
@@ -578,7 +592,25 @@ public class WordleGUI extends javax.swing.JFrame {
             this.palabraIntentar.setText("");
             
     }//GEN-LAST:event_enviarBotonActionPerformed
+    private void ganar(){
+        this.ganarLabel1.setForeground(VERDE);
+        this.ganarLabel1.setText("  Enhorabuena!!!!!");
+        this.ganarLabel2.setForeground(VERDE);
+        this.ganarLabel2.setText("  Has ganado en "+cont+" intentos");
+        this.palabraIntentar.setBorder(BorderFactory.createLineBorder(VERDE));
+        
+        
+        
+    }
     
+    private void perder(){
+        this.ganarLabel1.setForeground(ROJO);
+        this.ganarLabel1.setText("  !!UPS!!");
+        this.ganarLabel2.setForeground(ROJO);
+        this.ganarLabel2.setText("  La palabra correcta: "+palabraA);
+        this.palabraIntentar.setBorder(BorderFactory.createLineBorder(ROJO));
+        
+    }
     private void finalizarJuego(){
         this.enviarBoton.setEnabled(false);
         this.palabraIntentar.setEditable(false);
@@ -599,7 +631,8 @@ public class WordleGUI extends javax.swing.JFrame {
             }
         }
         
-        this.ganarLabel.setText("");
+        this.ganarLabel1.setText("");
+        this.ganarLabel2.setText("");
         this.palabraIntentar.setText("");
         this.mensajeError.setText("");
         this.letrasAcertadas.setText("");
@@ -607,6 +640,7 @@ public class WordleGUI extends javax.swing.JFrame {
         
         this.enviarBoton.setEnabled(true);
         this.palabraIntentar.setEditable(true);
+        this.palabraIntentar.setBorder(BorderFactory.createLineBorder(Color.white));
         
         cont = 1;
     }
@@ -677,10 +711,11 @@ public class WordleGUI extends javax.swing.JFrame {
         
     }
     private boolean esVerde(StringBuilder sb,StringBuilder sbA,int j){
+        String letra = sb.substring(j,j+1);
         if(sb.substring(j,j+1).equals(sbA.substring(j,j+1))){
             sb.replace(j, j+1,"!");
             sbA.replace(j, j+1,"!");
-            
+            //almacenarLetras(letra,"verde");
             return true;
         }else{
             return false;
@@ -689,19 +724,31 @@ public class WordleGUI extends javax.swing.JFrame {
     
     private Color esNaranja(StringBuilder sb,StringBuilder sbA,int j,JLabel jLabel){
         if(!sb.substring(j,j+1).equals("!")){
+            String letra = sb.substring(j,j+1);
             if(sbA.indexOf(sb.substring(j,j+1))!=-1){
                 sbA.replace(sbA.indexOf(sb.substring(j,j+1)), sbA.indexOf(sb.substring(j,j+1))+1," ");
                 sb.replace(j,j+1," ");
+                
+                
                 return NARANJA;
             }else{
-
-                return Color.BLACK;
+                //almacenarLetras(letra,"rojo");
+                return ROJO;
 
             }
         }
         return jLabel.getBackground(); 
         
     }
+    
+    /*
+    private void almacenarLetras(String letra, String color){
+        if(color.equals("rojo")){
+            this.
+        }
+    }
+     */   
+    
     
     private boolean comprobarPalabra(String p){
         if(p.matches("[a-zA-Z]{5}")){
@@ -757,7 +804,8 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem botonReinicio;
     private javax.swing.JPanel botonesPanel;
     private javax.swing.JButton enviarBoton;
-    private javax.swing.JLabel ganarLabel;
+    private javax.swing.JLabel ganarLabel1;
+    private javax.swing.JLabel ganarLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -797,8 +845,8 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem motorDeporte;
     private javax.swing.JRadioButtonMenuItem motorFileBoton;
     private javax.swing.JRadioButtonMenuItem motorTestBoton;
+    private javax.swing.JPanel nombreMotor;
     private javax.swing.JTextArea palabraIntentar;
-    private javax.swing.JLabel palabraPierdes;
     private javax.swing.JPanel palabrasPanel;
     // End of variables declaration//GEN-END:variables
 }
