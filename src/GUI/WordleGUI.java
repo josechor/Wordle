@@ -39,6 +39,7 @@ public class WordleGUI extends javax.swing.JFrame {
         motor = new motorDeporte();
         palabraA = motor.palabraAleatoria().toUpperCase();
         inicializarLabels();
+        System.out.println(palabraA);
         
         
     }
@@ -588,6 +589,7 @@ public class WordleGUI extends javax.swing.JFrame {
         this.palabraIntentar.setEditable(true);
         
         cont = 1;
+        
     }//GEN-LAST:event_botonReinicioActionPerformed
 
     private void palabraIntentarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraIntentarKeyTyped
@@ -602,8 +604,7 @@ public class WordleGUI extends javax.swing.JFrame {
         
         StringBuilder sb = new StringBuilder(palabra);
         StringBuilder sbA = new StringBuilder(palabraA);
-        System.out.println(sb);
-        System.out.println(sbA);
+        
         if(ganar){
             JLabel[] label = labels[cont-1];
             for(int j  = 0; j < label.length; j++){
@@ -613,38 +614,50 @@ public class WordleGUI extends javax.swing.JFrame {
                 jLabel.setBackground(VERDE);
             } 
         }else{
+            //comprobar color verde
             JLabel[] label = labels[cont-1];
             for(int j  = 0; j < label.length; j++){
                 JLabel jLabel = label[j];
                 String letra = palabra.charAt(j) + "";
                 jLabel.setText(letra);
-                jLabel.setBackground(colorLetra(sb,sbA,j));
+                if(esVerde(sb,sbA,j)){
+                    jLabel.setBackground(VERDE);
+                }
+            }
+            //comprobar color naranja
+            for(int j  = 0; j < label.length; j++){
+                JLabel jLabel = label[j];
                 
+                jLabel.setBackground(esNaranja(sb,sbA,j,jLabel));    
             } 
         }
         
         
     }
-    
-    
-    private Color colorLetra(StringBuilder sb,StringBuilder sbA,int j){
-        System.out.println(sb);
-        System.out.println(sbA);
+    private boolean esVerde(StringBuilder sb,StringBuilder sbA,int j){
         if(sb.substring(j,j+1).equals(sbA.substring(j,j+1))){
-            sb.replace(j, j+1," ");
-            sbA.replace(j, j+1," ");
+            sb.replace(j, j+1,"!");
+            sbA.replace(j, j+1,"!");
             
-            return VERDE;
-        }
-        else if(sbA.indexOf(sb.substring(j,j+1))!=-1){
-            sbA.replace(sbA.indexOf(sb.substring(j,j+1)), sbA.indexOf(sb.substring(j,j+1))+1," ");
-            sb.replace(j,j+1," ");
-            return NARANJA;
+            return true;
         }else{
-            
-            return Color.BLACK;
-            
+            return false;
         }
+    }
+    
+    private Color esNaranja(StringBuilder sb,StringBuilder sbA,int j,JLabel jLabel){
+        if(!sb.substring(j,j+1).equals("!")){
+            if(sbA.indexOf(sb.substring(j,j+1))!=-1){
+                sbA.replace(sbA.indexOf(sb.substring(j,j+1)), sbA.indexOf(sb.substring(j,j+1))+1," ");
+                sb.replace(j,j+1," ");
+                return NARANJA;
+            }else{
+
+                return Color.BLACK;
+
+            }
+        }
+        return jLabel.getBackground(); 
         
     }
     
