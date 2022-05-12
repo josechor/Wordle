@@ -10,8 +10,6 @@ import Clases.motorTest;
 import Clases.motorDeporte;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -59,6 +57,7 @@ public class WordleGUI extends javax.swing.JFrame {
         
     }
     
+    //creamos la amtriz de labels de letras
     public final void inicializarLabels(){
         for(int i  = 1;i<=MAX_INTENTOS; i++){
             for(int j = 1;j<=TAMAÑO_PALABRA;j++){
@@ -86,6 +85,12 @@ public class WordleGUI extends javax.swing.JFrame {
 
         BotonMotorGrupo = new javax.swing.ButtonGroup();
         claridadGrupo = new javax.swing.ButtonGroup();
+        ExplicaiconT = new javax.swing.JDialog();
+        Main1 = new javax.swing.JPanel();
+        mensaje1 = new javax.swing.JLabel();
+        mensaje2 = new javax.swing.JLabel();
+        mensaje3 = new javax.swing.JLabel();
+        cerrarBoton = new javax.swing.JButton();
         Main = new javax.swing.JPanel();
         motorNombre = new javax.swing.JPanel();
         motorNombreLabel = new javax.swing.JLabel();
@@ -139,6 +144,50 @@ public class WordleGUI extends javax.swing.JFrame {
         modoClaro = new javax.swing.JRadioButtonMenuItem();
         modoOscuro = new javax.swing.JRadioButtonMenuItem();
         explicacionesMenu = new javax.swing.JMenu();
+
+        ExplicaiconT.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        Main1.setMinimumSize(new java.awt.Dimension(400, 300));
+        Main1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mensaje1.setText("jLabel1");
+        mensaje1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Main1.add(mensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 400, 80));
+
+        mensaje2.setText("jLabel1");
+        Main1.add(mensaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 400, 70));
+
+        mensaje3.setText("jLabel1");
+        Main1.add(mensaje3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 400, 50));
+
+        cerrarBoton.setText("Cerrar");
+        cerrarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarBotonActionPerformed(evt);
+            }
+        });
+        Main1.add(cerrarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 100, 40));
+
+        javax.swing.GroupLayout ExplicaiconTLayout = new javax.swing.GroupLayout(ExplicaiconT.getContentPane());
+        ExplicaiconT.getContentPane().setLayout(ExplicaiconTLayout);
+        ExplicaiconTLayout.setHorizontalGroup(
+            ExplicaiconTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(ExplicaiconTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ExplicaiconTLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Main1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        ExplicaiconTLayout.setVerticalGroup(
+            ExplicaiconTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(ExplicaiconTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ExplicaiconTLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Main1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -478,6 +527,7 @@ public class WordleGUI extends javax.swing.JFrame {
         Main.add(palabrasPanel, java.awt.BorderLayout.CENTER);
 
         botonesPanel.setBackground(new java.awt.Color(255, 255, 255));
+        botonesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         botonesPanel.setMaximumSize(new java.awt.Dimension(700, 230));
         botonesPanel.setMinimumSize(new java.awt.Dimension(700, 230));
         botonesPanel.setOpaque(false);
@@ -532,7 +582,7 @@ public class WordleGUI extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addComponent(enviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(palabraIntentar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -545,7 +595,7 @@ public class WordleGUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enviarBoton)
                     .addComponent(palabraIntentar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         botonesPanel.add(jPanel4);
@@ -688,6 +738,7 @@ public class WordleGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Pulsar boton de enviar
     private void enviarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarBotonActionPerformed
             
         boolean ganar;
@@ -714,6 +765,8 @@ public class WordleGUI extends javax.swing.JFrame {
             
             
     }//GEN-LAST:event_enviarBotonActionPerformed
+    
+    //metodo que configura la interfaz cuando ganas
     private void ganar(){
         if(claridad){
             this.ganarLabel1.setForeground(VERDE);
@@ -729,11 +782,10 @@ public class WordleGUI extends javax.swing.JFrame {
         this.ganarLabel1.setText("  Enhorabuena!!!!!");
         this.ganarLabel2.setText("  Has ganado en "+cont+" intentos");
         
-        
-        
-        
     }
     
+    
+    //metodo que configura la interfaz cuando pierdes
     private void perder(){
         if(claridad){
             this.ganarLabel1.setForeground(ROJO);
@@ -750,6 +802,8 @@ public class WordleGUI extends javax.swing.JFrame {
         this.palabraIntentar.setBorder(BorderFactory.createLineBorder(ROJO));
         
     }
+    
+    //metodo que finaliza el juego
     private void finalizarJuego(){
         this.enviarBoton.setEnabled(false);
         this.palabraIntentar.setEditable(false);
@@ -759,6 +813,8 @@ public class WordleGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonReinicioActionPerformed
     
+    
+    //boton que sirve para reinicar la partida
     private void reiniciar(){
         palabraA = motor.palabraAleatoria().toUpperCase();
         System.out.println(palabraA);
@@ -816,6 +872,7 @@ public class WordleGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_palabraIntentarActionPerformed
 
+    //no dejar introducir mas de 5 letras
     private void palabraIntentarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraIntentarKeyTyped
         if(this.palabraIntentar.getText().length()==5){
             evt.consume();
@@ -826,23 +883,32 @@ public class WordleGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_explicacionesMenuActionPerformed
 
+    //boton de explicaciones que abre las distintas explicaciones de los juegos
     private void explicacionesMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_explicacionesMenuMouseClicked
         if(this.motorDeporte.isSelected()){            
-            JFrame explicacionD = new ExplicacionDeporte();
-            explicacionD.setVisible(true);   
-        }else if(this.motorTestBoton.isSelected()){            
-            JFrame explicacionD = new ExplicacionTest();
-            explicacionD.setVisible(true);           
+            
+              
+        }else if(this.motorTestBoton.isSelected()){   
+            this.setEnabled(false);
+            this.ExplicaiconT.setVisible(true);
         }
     }//GEN-LAST:event_explicacionesMenuMouseClicked
-
+    //metodo que al darle entre pulse el boton de enviar
     private void palabraIntentarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraIntentarKeyReleased
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             this.enviarBoton.doClick();
             System.out.println("Presionaste enter");
         }
     }//GEN-LAST:event_palabraIntentarKeyReleased
+
+    private void cerrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarBotonActionPerformed
+
+        this.ExplicaiconT.hide();
+        this.setEnabled(true);
+    }//GEN-LAST:event_cerrarBotonActionPerformed
     
+    
+    //configurar la interfaz para poner modo claro o modo oscuro
     private void modoClaridad(){
         if(this.modoClaro.isSelected()){
             this.Main.setBackground(new Color(250,250,250));
@@ -857,6 +923,7 @@ public class WordleGUI extends javax.swing.JFrame {
         }
     }
     
+    //metodo para seleccionar el motor de juego
     private void seleccionarMotor(){
         if(this.motorDeporte.isSelected()){
             motor = new motorDeporte();
@@ -1027,9 +1094,12 @@ public class WordleGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BotonMotorGrupo;
+    private javax.swing.JDialog ExplicaiconT;
     private javax.swing.JPanel Main;
+    private javax.swing.JPanel Main1;
     private javax.swing.JMenuItem botonReinicio;
     private javax.swing.JPanel botonesPanel;
+    private javax.swing.JButton cerrarBoton;
     private javax.swing.ButtonGroup claridadGrupo;
     private javax.swing.JMenu claridadMenu;
     private javax.swing.JButton enviarBoton;
@@ -1071,6 +1141,9 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JLabel letrasAcertadas;
     private javax.swing.JLabel letrasFalladas;
     private javax.swing.JPanel letrasPanel;
+    private javax.swing.JLabel mensaje1;
+    private javax.swing.JLabel mensaje2;
+    private javax.swing.JLabel mensaje3;
     private javax.swing.JLabel mensajeError;
     private javax.swing.JRadioButtonMenuItem modoClaro;
     private javax.swing.JRadioButtonMenuItem modoOscuro;
