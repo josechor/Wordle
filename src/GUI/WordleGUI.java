@@ -9,6 +9,7 @@ import Clases.IWordle;
 import Clases.motorTest;
 import Clases.motorDeporte;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -75,7 +76,6 @@ public class WordleGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         BotonMotorGrupo = new javax.swing.ButtonGroup();
         claridadGrupo = new javax.swing.ButtonGroup();
@@ -504,6 +504,9 @@ public class WordleGUI extends javax.swing.JFrame {
             }
         });
         palabraIntentar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                palabraIntentarKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 palabraIntentarKeyTyped(evt);
             }
@@ -626,7 +629,6 @@ public class WordleGUI extends javax.swing.JFrame {
             }
         });
         claridadMenu.add(modoClaro);
-        modoClaro.getAccessibleContext().setAccessibleParent(null);
 
         claridadGrupo.add(modoOscuro);
         modoOscuro.setText("Modo oscuro");
@@ -637,7 +639,6 @@ public class WordleGUI extends javax.swing.JFrame {
             }
         });
         claridadMenu.add(modoOscuro);
-        modoOscuro.getAccessibleContext().setAccessibleParent(null);
 
         jMenuBar1.add(claridadMenu);
         claridadMenu.getAccessibleContext().setAccessibleName("modoOscuro");
@@ -730,7 +731,7 @@ public class WordleGUI extends javax.swing.JFrame {
         
         this.ganarLabel1.setText("  !!UPS!!");
         
-        this.ganarLabel2.setText("  La palabra correcta: "+palabraA);
+        this.ganarLabel2.setText("  La palabra correcta era "+palabraA);
         this.palabraIntentar.setBorder(BorderFactory.createLineBorder(ROJO));
         
     }
@@ -815,6 +816,13 @@ public class WordleGUI extends javax.swing.JFrame {
             explicacionD.setVisible(true);           
         }
     }//GEN-LAST:event_explicacionesMenuMouseClicked
+
+    private void palabraIntentarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraIntentarKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            this.enviarBoton.doClick();
+            System.out.println("Presionaste enter");
+        }
+    }//GEN-LAST:event_palabraIntentarKeyReleased
     
     private void modoClaridad(){
         if(this.modoClaro.isSelected()){
