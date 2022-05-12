@@ -10,6 +10,10 @@ import Clases.motorTest;
 import Clases.motorDeporte;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -23,6 +27,9 @@ import javax.swing.JLabel;
 public class WordleGUI extends javax.swing.JFrame {
     
     private boolean claridad;
+    
+    Set<String> verdes = new TreeSet<>();
+    Set<String> rojas = new TreeSet<>();
     
     private final Color VERDE = new Color(38,181,5);
     private final Color VERDE_PARA_OSCURO = new Color(50,245,5);
@@ -480,7 +487,15 @@ public class WordleGUI extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.GridLayout(2, 0));
+
+        letrasAcertadas.setBackground(new java.awt.Color(255, 255, 255));
+        letrasAcertadas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        letrasAcertadas.setForeground(new java.awt.Color(38, 181, 5));
         jPanel5.add(letrasAcertadas);
+
+        letrasFalladas.setBackground(new java.awt.Color(255, 255, 255));
+        letrasFalladas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        letrasFalladas.setForeground(new java.awt.Color(204, 0, 0));
         jPanel5.add(letrasFalladas);
 
         botonesPanel.add(jPanel5);
@@ -767,6 +782,10 @@ public class WordleGUI extends javax.swing.JFrame {
         this.palabraIntentar.setBorder(BorderFactory.createLineBorder(Color.black));
         
         cont = 1;
+        verdes = new TreeSet<>();
+        rojas = new TreeSet<>();
+        System.out.println(verdes);
+        System.out.println(rojas+"roja");
     }
     
     private void motorTestBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorTestBotonActionPerformed
@@ -832,7 +851,7 @@ public class WordleGUI extends javax.swing.JFrame {
             claridad = true;
         }else if(this.modoOscuro.isSelected()){
             claridad = false;
-            this.Main.setBackground(new Color(130,130,130));
+            this.Main.setBackground(new Color(50,50,50));
             this.motorNombreLabel.setForeground(Color.white);
             System.out.println("color negro");
         }
@@ -863,6 +882,7 @@ public class WordleGUI extends javax.swing.JFrame {
                 JLabel jLabel = label[j];
                 String letra = palabra.charAt(j) + "";
                 jLabel.setText(letra);
+                letrasVerdes(letra);
                 jLabel.setBackground(VERDE);
             } 
         }else{
@@ -886,18 +906,31 @@ public class WordleGUI extends javax.swing.JFrame {
         
         
     }
+    
+    //comprobar si la letra es verde
     private boolean esVerde(StringBuilder sb,StringBuilder sbA,int j){
         String letra = sb.substring(j,j+1);
         if(sb.substring(j,j+1).equals(sbA.substring(j,j+1))){
             sb.replace(j, j+1,"!");
             sbA.replace(j, j+1,"!");
-            //almacenarLetras(letra,"verde");
+            letrasVerdes(letra);
             return true;
         }else{
             return false;
         }
     }
     
+    
+    //meter letras verdes en labels
+    private void letrasVerdes(String letra){
+        if(!verdes.contains(letra)){
+            verdes.add(letra);
+        }
+        this.letrasAcertadas.setText("   "+quitarCorchetes(verdes.toString()));
+    }
+    
+    
+    //comprobar si la letra es roja o naranja
     private Color esNaranja(StringBuilder sb,StringBuilder sbA,int j,JLabel jLabel){
         if(!sb.substring(j,j+1).equals("!")){
             String letra = sb.substring(j,j+1);
@@ -908,7 +941,7 @@ public class WordleGUI extends javax.swing.JFrame {
                 
                 return NARANJA;
             }else{
-                //almacenarLetras(letra,"rojo");
+                letrasRojo(letra);
                 return ROJO;
 
             }
@@ -917,15 +950,28 @@ public class WordleGUI extends javax.swing.JFrame {
         
     }
     
-    /*
-    private void almacenarLetras(String letra, String color){
-        if(color.equals("rojo")){
-            this.
+    //almacenar letras rojas en label
+    private void letrasRojo(String letra){
+        if(!rojas.contains(letra)){
+            rojas.add(letra);
         }
+        
+        this.letrasFalladas.setText("   "+quitarCorchetes(rojas.toString()));
     }
-     */   
     
+    //metodo para quitar los corchetes del set.toString()
+    private String quitarCorchetes(String letras){
+        StringBuilder sb = new StringBuilder(letras);
+        int primerC = sb.indexOf("[");
+        sb.delete(primerC, primerC+1);
+        int segundoC = sb.indexOf("]");
+        sb.delete(segundoC,segundoC+1);
+        return sb.toString();
+        
+    }
+     
     
+    //metodo para comprobar si la palabra esta bien escrita
     private boolean comprobarPalabra(String p){
         if(p.matches("[a-zA-Z]{5}")){
             this.mensajeError.setText("");
