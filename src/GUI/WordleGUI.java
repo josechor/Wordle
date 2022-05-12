@@ -513,8 +513,8 @@ public class WordleGUI extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 104, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(104, Short.MAX_VALUE)
                 .addComponent(enviarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(palabraIntentar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -695,7 +695,7 @@ public class WordleGUI extends javax.swing.JFrame {
             cont++;  
             }
             this.palabraIntentar.setText("");
-            this.jDialog1.setVisible(true);
+            
             
     }//GEN-LAST:event_enviarBotonActionPerformed
     private void ganar(){
@@ -807,14 +807,12 @@ public class WordleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_explicacionesMenuActionPerformed
 
     private void explicacionesMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_explicacionesMenuMouseClicked
-        if(this.motorDeporte.isSelected()){
+        if(this.motorDeporte.isSelected()){            
             JFrame explicacionD = new ExplicacionDeporte();
-            explicacionD.setVisible(true);
-            
-        }else if(this.motorTestBoton.isSelected()){
+            explicacionD.setVisible(true);   
+        }else if(this.motorTestBoton.isSelected()){            
             JFrame explicacionD = new ExplicacionTest();
-            explicacionD.setVisible(true);
-            
+            explicacionD.setVisible(true);           
         }
     }//GEN-LAST:event_explicacionesMenuMouseClicked
     
