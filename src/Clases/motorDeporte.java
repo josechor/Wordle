@@ -92,6 +92,13 @@ public class motorDeporte implements IWordle{
         palabras.add("yoqui");
         palabras.add("botar");
         palabras.add("turno");
+        palabras.add("zumba");
+        palabras.add("kendo");
+        palabras.add("rally");
+        palabras.add("fondo");
+        palabras.add("batir");
+        palabras.add("crack");
+        palabras.add("wushu");
         
 }
     @Override
