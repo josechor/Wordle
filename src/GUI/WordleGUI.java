@@ -95,16 +95,18 @@ public class WordleGUI extends javax.swing.JFrame {
         Cuerpo = new javax.swing.JPanel();
         añadirPalabra = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        añadirPalabraText = new javax.swing.JTextField();
+        botonAñadir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        errorAñadirPalabra = new javax.swing.JLabel();
         borrarPalabra = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        borrarPalabraText = new javax.swing.JTextField();
+        botonBorrar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        errorBorrarPalabra = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        cerrarGestionMotor = new javax.swing.JButton();
         Main = new javax.swing.JPanel();
         motorNombre = new javax.swing.JPanel();
         motorNombreLabel = new javax.swing.JLabel();
@@ -177,6 +179,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
         Explicacion.getContentPane().add(Main1, java.awt.BorderLayout.CENTER);
 
+        modificar.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         modificar.setPreferredSize(new java.awt.Dimension(500, 500));
         modificar.setResizable(false);
         modificar.setSize(new java.awt.Dimension(650, 500));
@@ -193,56 +196,115 @@ public class WordleGUI extends javax.swing.JFrame {
 
         Cuerpo.setLayout(new java.awt.GridLayout(0, 1));
 
-        añadirPalabra.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        añadirPalabra.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Añadir palabra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18))); // NOI18N
         añadirPalabra.setLayout(new java.awt.GridLayout(0, 1));
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 15));
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setPreferredSize(new java.awt.Dimension(100, 20));
-        jPanel1.add(jTextField1);
+        añadirPalabraText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        añadirPalabraText.setPreferredSize(new java.awt.Dimension(100, 30));
+        añadirPalabraText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                añadirPalabraTextKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                añadirPalabraTextKeyTyped(evt);
+            }
+        });
+        jPanel1.add(añadirPalabraText);
 
-        jButton1.setText("Añadir");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jButton1);
+        botonAñadir.setText("Añadir");
+        botonAñadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonAñadir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonAñadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAñadirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonAñadir);
 
         añadirPalabra.add(jPanel1);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPanel2.add(jLabel2, new java.awt.GridBagConstraints());
+        errorAñadirPalabra.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jPanel2.add(errorAñadirPalabra, new java.awt.GridBagConstraints());
 
         añadirPalabra.add(jPanel2);
 
         Cuerpo.add(añadirPalabra);
 
-        borrarPalabra.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        borrarPalabra.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Borrar plabra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18))); // NOI18N
         borrarPalabra.setLayout(new java.awt.GridLayout(0, 1));
 
         jPanel7.setPreferredSize(new java.awt.Dimension(210, 30));
         jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 15));
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setPreferredSize(new java.awt.Dimension(100, 20));
-        jPanel7.add(jTextField2);
+        borrarPalabraText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        borrarPalabraText.setPreferredSize(new java.awt.Dimension(100, 30));
+        borrarPalabraText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                borrarPalabraTextKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                borrarPalabraTextKeyTyped(evt);
+            }
+        });
+        jPanel7.add(borrarPalabraText);
 
-        jButton2.setText("Borrar");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel7.add(jButton2);
+        botonBorrar.setText("Borrar");
+        botonBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBorrarActionPerformed(evt);
+            }
+        });
+        jPanel7.add(botonBorrar);
 
         borrarPalabra.add(jPanel7);
 
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPanel8.add(jLabel3, new java.awt.GridBagConstraints());
+        errorBorrarPalabra.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jPanel8.add(errorBorrarPalabra, new java.awt.GridBagConstraints());
 
         borrarPalabra.add(jPanel8);
 
         Cuerpo.add(borrarPalabra);
 
         MainSelecMotor.add(Cuerpo, java.awt.BorderLayout.CENTER);
+
+        cerrarGestionMotor.setText("CERRAR");
+        cerrarGestionMotor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cerrarGestionMotor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarGestionMotorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(cerrarGestionMotor)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(cerrarGestionMotor)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        MainSelecMotor.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
         modificar.getContentPane().add(MainSelecMotor, java.awt.BorderLayout.CENTER);
 
@@ -766,6 +828,7 @@ public class WordleGUI extends javax.swing.JFrame {
         claridadMenu.getAccessibleContext().setAccessibleName("modoOscuro");
 
         jMenu3.setText("Modificar");
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
@@ -987,6 +1050,67 @@ public class WordleGUI extends javax.swing.JFrame {
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         this.modificar.setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void botonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirActionPerformed
+        String texto = this.añadirPalabraText.getText();
+        if(!texto.matches("[A-Za-z]{5}")){
+            this.errorAñadirPalabra.setText("Formato de palabra incorrecto");
+        }else if(motor.existe(texto)){
+            this.errorAñadirPalabra.setText("Esta palabra ya existe");
+        }else{
+            motor.anhadirPalabra(texto);
+            this.errorAñadirPalabra.setText("Palabra añadida correctamente");
+            motor.mostrar();
+        }
+        this.añadirPalabraText.setText("");
+    }//GEN-LAST:event_botonAñadirActionPerformed
+
+    private void añadirPalabraTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añadirPalabraTextKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            this.botonAñadir.doClick();
+            System.out.println("Presionaste enter");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_añadirPalabraTextKeyReleased
+
+    private void añadirPalabraTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añadirPalabraTextKeyTyped
+        // TODO add your handling code here:
+        if (this.añadirPalabraText.getText().length() == 5) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_añadirPalabraTextKeyTyped
+
+    private void borrarPalabraTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_borrarPalabraTextKeyTyped
+        if(this.borrarPalabraText.getText().length()==5){
+            evt.consume();
+        } 
+    }//GEN-LAST:event_borrarPalabraTextKeyTyped
+
+    private void borrarPalabraTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_borrarPalabraTextKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            this.botonBorrar.doClick();
+            System.out.println("Presionaste enter");
+        }
+    }//GEN-LAST:event_borrarPalabraTextKeyReleased
+
+    private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
+        String texto = this.borrarPalabraText.getText();
+        if(!texto.matches("[A-Za-z]{5}")){
+            this.errorBorrarPalabra.setText("Formato de palabra incorrecto");
+        }else if(motor.existe(texto)){
+            motor.borrarPalabra(texto);
+            this.errorBorrarPalabra.setText("Palabra borrada con exito");
+        }else{
+            motor.anhadirPalabra(texto);
+            this.errorBorrarPalabra.setText("La palabra no existe");
+            motor.mostrar();
+        }
+        this.borrarPalabraText.setText("");
+    }//GEN-LAST:event_botonBorrarActionPerformed
+
+    private void cerrarGestionMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarGestionMotorActionPerformed
+        this.modificar.dispose();
+        reiniciar();
+    }//GEN-LAST:event_cerrarGestionMotorActionPerformed
     
     
     
@@ -1184,20 +1308,23 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JPanel MainSelecMotor;
     private javax.swing.JPanel TitutloPanel;
     private javax.swing.JPanel añadirPalabra;
+    private javax.swing.JTextField añadirPalabraText;
     private javax.swing.JPanel borrarPalabra;
+    private javax.swing.JTextField borrarPalabraText;
+    private javax.swing.JButton botonAñadir;
+    private javax.swing.JButton botonBorrar;
     private javax.swing.JMenuItem botonReinicio;
     private javax.swing.JPanel botonesPanel;
+    private javax.swing.JButton cerrarGestionMotor;
     private javax.swing.ButtonGroup claridadGrupo;
     private javax.swing.JMenu claridadMenu;
     private javax.swing.JButton enviarBoton;
+    private javax.swing.JLabel errorAñadirPalabra;
+    private javax.swing.JLabel errorBorrarPalabra;
     private javax.swing.JMenu explicacionesMenu;
     private javax.swing.JLabel ganarLabel1;
     private javax.swing.JLabel ganarLabel2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1210,8 +1337,7 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel label11;
     private javax.swing.JLabel label12;
     private javax.swing.JLabel label13;
