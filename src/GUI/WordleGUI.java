@@ -1049,6 +1049,7 @@ public class WordleGUI extends javax.swing.JFrame {
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         this.modificar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void botonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirActionPerformed
@@ -1060,16 +1061,17 @@ public class WordleGUI extends javax.swing.JFrame {
         }else{
             motor.anhadirPalabra(texto);
             this.errorAñadirPalabra.setText("Palabra añadida correctamente");
-            motor.mostrar();
+            
         }
         this.añadirPalabraText.setText("");
+        motor.mostrar();
     }//GEN-LAST:event_botonAñadirActionPerformed
 
     private void añadirPalabraTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añadirPalabraTextKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             this.botonAñadir.doClick();
             System.out.println("Presionaste enter");
-        }        // TODO add your handling code here:
+        }        
     }//GEN-LAST:event_añadirPalabraTextKeyReleased
 
     private void añadirPalabraTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añadirPalabraTextKeyTyped
@@ -1102,14 +1104,17 @@ public class WordleGUI extends javax.swing.JFrame {
         }else{
             motor.anhadirPalabra(texto);
             this.errorBorrarPalabra.setText("La palabra no existe");
-            motor.mostrar();
+            
         }
         this.borrarPalabraText.setText("");
+        motor.mostrar();
     }//GEN-LAST:event_botonBorrarActionPerformed
 
     private void cerrarGestionMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarGestionMotorActionPerformed
         this.modificar.dispose();
+        this.setVisible(true);
         reiniciar();
+        
     }//GEN-LAST:event_cerrarGestionMotorActionPerformed
     
     
