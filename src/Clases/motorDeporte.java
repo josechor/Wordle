@@ -4,14 +4,27 @@
  */
 package Clases;
  
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.logging.*;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author jrpaz
  */
-public class motorDeporte implements IWordle{
-    private java.util.List<String> palabras;
-    public motorDeporte(){
-    this.palabras = new java.util.ArrayList<>();
+/*
         palabras.add("alero");
         palabras.add("alfil");
         palabras.add("apnea");
@@ -99,47 +112,185 @@ public class motorDeporte implements IWordle{
         palabras.add("batir");
         palabras.add("crack");
         palabras.add("wushu");
-        
-}
+*/
+
+public class motorDeporte implements IWordle {
+
+    private java.util.Set<String> palabras = new java.util.HashSet<>();
+
+    private static File FICHERO;
+
+    public motorDeporte(File fichero) {
+        FICHERO = fichero;
+        cargarPalabrasFileToSet();
+    }
+    
+    
+
     @Override
     public String palabraAleatoria() {
-        int a = (int) (Math.random() * ((palabras.size()-1) - 0));
-        return palabras.get(a);
-    }
 
-    @Override
-    public boolean existe(String p) {
-        p = p.toLowerCase();
-        return palabras.contains(p);
-    }
+        if (!FICHERO.exists()) {
+            crearFichero();
+        }
 
+        String palabra = "";
+
+        java.util.Random genNum = new java.util.Random();
+
+        Iterator it = palabras.iterator();
+
+        int numPalabraSeleccionada = genNum.nextInt(palabras.size());
+        int contador = 0;
+
+        while (contador <= numPalabraSeleccionada) {
+            palabra = (String) it.next();
+            contador++;
+        }
+
+        return palabra;
+    }
+    
     @Override
     public boolean anhadirPalabra(String p) {
-        p = p.toLowerCase();
-        
-        if(p.matches("[A-Za-z]{5}")){
-            return false;
+        p = p.toLowerCase().trim();
+
+        if (checkPalabra(p)) {
+
+            if (!FICHERO.exists()) {
+                crearFichero();
+            }
+
+            if (!palabras.contains(p)) {
+
+                if (palabras.add(p)) {
+                    if(cargarPalabrasSetToFile()){
+                        return true;
+                    }
+                }
+
+            }
         }
-        else if(existe(p)){
-            return false;
-        }else{
-            palabras.add(p);
-            return true;
-        }
+        return false;
     }
 
+
     @Override
-    public boolean borrarPalabra(String p) {
-        p = p.toLowerCase();
-        if(p.matches("[A-Za-z]{5}")){
-            return false;
+    public boolean borrarPalabra(String palabra) {
+
+        palabra = palabra.toLowerCase().trim();
+
+        if (checkPalabra(palabra)) {
+
+            if (!FICHERO.exists()) {
+                crearFichero();
+            }
+
+            if (palabras.contains(palabra)) {
+
+                if (palabras.remove(palabra)) {
+                    if(cargarPalabrasSetToFile()){
+                        return true;
+                    }
+                }
+
+            }
         }
-        else if(existe(p)){
-            palabras.remove(p);
-            return true;
-        }else{
-            return false;
-        }
+
+        return false;
+
     }
-        
+
+    
+    
+    @Override
+    public boolean existe(String palabra) {
+        cargarPalabrasFileToSet();
+        palabra = palabra.toLowerCase().trim();
+        return palabras.contains(palabra);
+    }
+
+    private boolean cargarPalabrasFileToSet() {
+
+        try (BufferedReader br = new BufferedReader(new FileReader(FICHERO))) {
+            String linea = br.readLine();
+            while (linea != null) {
+                palabras.add(linea);
+                linea = br.readLine();
+            }
+            return true;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    private void crearFichero() {
+
+        FICHERO.getParentFile().mkdirs();
+        try {
+            FICHERO.createNewFile();
+        } catch (IOException ex) {
+            Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private boolean checkPalabra(String palabra) {
+
+        palabra = palabra.toLowerCase().trim();
+        if (palabra.matches("[^a-z]{5}")) {
+            return false;
+        }
+        return true;
+
+    }
+    
+    
+    private boolean cargarPalabrasSetToFile() {
+
+        if (!FICHERO.exists()) {
+            crearFichero();
+        }
+
+        try (Writer wr = new BufferedWriter(new FileWriter(FICHERO))) {
+            wr.write("");
+        } catch (IOException ex) {
+            Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try (Writer wr = new BufferedWriter(new FileWriter(FICHERO, true))) {
+
+            StringBuilder sb = new StringBuilder();
+
+            Iterator it = palabras.iterator();
+
+            while (it.hasNext()) {
+
+                String aux = (String) it.next();
+
+                sb.append(aux).append("\n");
+            }
+
+            wr.write(sb.toString());
+            
+            return true;
+
+        } catch (IOException ex) {
+            Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+
+    }
+
+    
+
+    @Override
+    public void mostrar() {
+        System.out.println(palabras);
+    }
 }
+
+
