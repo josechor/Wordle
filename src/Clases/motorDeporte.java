@@ -13,12 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.logging.*;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.regex.Pattern;
+
 
 /**
  *
@@ -133,13 +129,10 @@ public class motorDeporte implements IWordle {
 
     }
 
-    private boolean checkPalabra(String palabra) {
+    private boolean checkPalabra(String p) {
 
-        palabra = palabra.toLowerCase().trim();
-        if (palabra.matches("[^a-z]{5}")) {
-            return false;
-        }
-        return true;
+        p = p.toLowerCase().trim();
+        return p.matches("[A-Za-z]{5}");
 
     }
 
