@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
  * @author jrpaz
  */
 
-
 public class motorDeporte implements IWordle {
 
     private java.util.Set<String> palabras = new java.util.HashSet<>();
@@ -34,10 +33,8 @@ public class motorDeporte implements IWordle {
 
     public motorDeporte(File fichero) {
         FICHERO = fichero;
-        cargarPalabrasFileToSet();
+        palabrasToSet();
     }
-    
-    
 
     @Override
     public String palabraAleatoria() {
@@ -62,69 +59,55 @@ public class motorDeporte implements IWordle {
 
         return palabra;
     }
-    
+
     @Override
     public boolean anhadirPalabra(String p) {
         p = p.toLowerCase().trim();
 
         if (checkPalabra(p)) {
-
             if (!FICHERO.exists()) {
                 crearFichero();
             }
-
             if (!palabras.contains(p)) {
-
                 if (palabras.add(p)) {
-                    if(cargarPalabrasSetToFile()){
+                    if (setToFile()) {
                         return true;
                     }
                 }
-
             }
         }
         return false;
     }
-
 
     @Override
-    public boolean borrarPalabra(String palabra) {
+    public boolean borrarPalabra(String p) {
 
-        palabra = palabra.toLowerCase().trim();
-
-        if (checkPalabra(palabra)) {
-
+        p = p.toLowerCase().trim();
+        if (checkPalabra(p)) {
             if (!FICHERO.exists()) {
                 crearFichero();
             }
-
-            if (palabras.contains(palabra)) {
-
-                if (palabras.remove(palabra)) {
-                    if(cargarPalabrasSetToFile()){
+            if (palabras.contains(p)) {
+                if (palabras.remove(p)) {
+                    if (setToFile()) {
                         return true;
                     }
                 }
-
             }
         }
-
         return false;
-
     }
 
-    
-    
     @Override
     public boolean existe(String palabra) {
-        cargarPalabrasFileToSet();
+        palabrasToSet();
         palabra = palabra.toLowerCase().trim();
         return palabras.contains(palabra);
     }
 
-    private boolean cargarPalabrasFileToSet() {
+    private boolean palabrasToSet() {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(FICHERO))) {
+        try ( BufferedReader br = new BufferedReader(new FileReader(FICHERO))) {
             String linea = br.readLine();
             while (linea != null) {
                 palabras.add(linea);
@@ -159,37 +142,25 @@ public class motorDeporte implements IWordle {
         return true;
 
     }
-    
-    
-    private boolean cargarPalabrasSetToFile() {
+
+    private boolean setToFile() {
 
         if (!FICHERO.exists()) {
             crearFichero();
         }
-
-        try (Writer wr = new BufferedWriter(new FileWriter(FICHERO))) {
+        try ( Writer wr = new BufferedWriter(new FileWriter(FICHERO))) {
             wr.write("");
         } catch (IOException ex) {
             Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        try (Writer wr = new BufferedWriter(new FileWriter(FICHERO, true))) {
+        try ( Writer wr = new BufferedWriter(new FileWriter(FICHERO, true))) {
 
             StringBuilder sb = new StringBuilder();
-
-            Iterator it = palabras.iterator();
-
-            while (it.hasNext()) {
-
-                String aux = (String) it.next();
-
+            for (String aux : palabras) {
                 sb.append(aux).append("\n");
             }
-
             wr.write(sb.toString());
-            
             return true;
-
         } catch (IOException ex) {
             Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -197,12 +168,8 @@ public class motorDeporte implements IWordle {
 
     }
 
-    
-
     @Override
     public void mostrar() {
         System.out.println(palabras);
     }
 }
-
-
