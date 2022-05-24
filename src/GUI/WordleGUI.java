@@ -6,12 +6,18 @@
 package GUI;
 
 import Clases.IWordle;
+import Clases.motorBaseDatos;
 import Clases.motorTest;
 import Clases.motorDeporte;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
+import java.sql.SQLException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -47,7 +53,7 @@ public class WordleGUI extends javax.swing.JFrame {
     private static final int TAMAÑO_PALABRA = 5;
     private final javax.swing.JLabel[][] labels = new javax.swing.JLabel[MAX_INTENTOS][TAMAÑO_PALABRA];
     
-    public WordleGUI() {
+    public WordleGUI() throws SQLException {
         initComponents();
         
         motor = new motorTest();
@@ -156,8 +162,9 @@ public class WordleGUI extends javax.swing.JFrame {
         botonReinicio = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         motorTestBoton = new javax.swing.JRadioButtonMenuItem();
-        motorBD = new javax.swing.JRadioButtonMenuItem();
         motorDeporte = new javax.swing.JRadioButtonMenuItem();
+        motorBDG = new javax.swing.JRadioButtonMenuItem();
+        motorBDC = new javax.swing.JRadioButtonMenuItem();
         claridadMenu = new javax.swing.JMenu();
         modoClaro = new javax.swing.JRadioButtonMenuItem();
         modoOscuro = new javax.swing.JRadioButtonMenuItem();
@@ -166,7 +173,6 @@ public class WordleGUI extends javax.swing.JFrame {
 
         Explicacion.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Explicacion.setMinimumSize(new java.awt.Dimension(350, 100));
-        Explicacion.setPreferredSize(new java.awt.Dimension(350, 100));
         Explicacion.setResizable(false);
         Explicacion.setSize(new java.awt.Dimension(350, 100));
 
@@ -182,7 +188,6 @@ public class WordleGUI extends javax.swing.JFrame {
         Explicacion.getContentPane().add(Main1, java.awt.BorderLayout.CENTER);
 
         modificar.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        modificar.setPreferredSize(new java.awt.Dimension(500, 500));
         modificar.setResizable(false);
         modificar.setSize(new java.awt.Dimension(650, 500));
 
@@ -776,16 +781,6 @@ public class WordleGUI extends javax.swing.JFrame {
         });
         jMenu2.add(motorTestBoton);
 
-        BotonMotorGrupo.add(motorBD);
-        motorBD.setText("BD");
-        motorBD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        motorBD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                motorBDActionPerformed(evt);
-            }
-        });
-        jMenu2.add(motorBD);
-
         BotonMotorGrupo.add(motorDeporte);
         motorDeporte.setText("Deportle");
         motorDeporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -795,6 +790,26 @@ public class WordleGUI extends javax.swing.JFrame {
             }
         });
         jMenu2.add(motorDeporte);
+
+        BotonMotorGrupo.add(motorBDG);
+        motorBDG.setText("BD gallego");
+        motorBDG.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        motorBDG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorBDGActionPerformed(evt);
+            }
+        });
+        jMenu2.add(motorBDG);
+
+        BotonMotorGrupo.add(motorBDC);
+        motorBDC.setText("BD castellano");
+        motorBDC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        motorBDC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorBDCActionPerformed(evt);
+            }
+        });
+        jMenu2.add(motorBDC);
 
         jMenuBar1.add(jMenu2);
 
@@ -944,13 +959,17 @@ public class WordleGUI extends javax.swing.JFrame {
         this.palabraIntentar.setEditable(false);
     }
     private void botonReinicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReinicioActionPerformed
-        reiniciar();
+        try {
+            reiniciar();
+        } catch (SQLException ex) {
+            Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_botonReinicioActionPerformed
     
     
     //boton que sirve para reinicar la partida
-    private void reiniciar(){
+    private void reiniciar() throws SQLException{
         palabraA = motor.palabraAleatoria().toUpperCase();
         System.out.println(palabraA);
         
@@ -980,15 +999,27 @@ public class WordleGUI extends javax.swing.JFrame {
     }
     
     private void motorTestBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorTestBotonActionPerformed
-        seleccionarMotor();
+        try {
+            seleccionarMotor();
+        } catch (SQLException ex) {
+            Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_motorTestBotonActionPerformed
 
-    private void motorBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorBDActionPerformed
-        seleccionarMotor();
-    }//GEN-LAST:event_motorBDActionPerformed
+    private void motorBDGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorBDGActionPerformed
+        try {
+            seleccionarMotor();
+        } catch (SQLException ex) {
+            Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_motorBDGActionPerformed
 
     private void motorDeporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorDeporteActionPerformed
-        seleccionarMotor();
+        try {
+            seleccionarMotor();
+        } catch (SQLException ex) {
+            Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_motorDeporteActionPerformed
 
     private void claridadMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claridadMenuActionPerformed
@@ -1040,7 +1071,10 @@ public class WordleGUI extends javax.swing.JFrame {
             this.Explicacion.setVisible(true);
             this.mensaje1.setText("Almacena las palabras en una lista");
         }
-        else if(this.motorBD.isSelected()){   
+        else if(this.motorBDG.isSelected()){   
+            this.Explicacion.setVisible(true);
+            this.mensaje1.setText("Almacena las palabras en una base de datos");
+        }else if(this.motorBDC.isSelected()){   
             this.Explicacion.setVisible(true);
             this.mensaje1.setText("Almacena las palabras en una base de datos");
         }
@@ -1066,7 +1100,11 @@ public class WordleGUI extends javax.swing.JFrame {
         }else if(motor.existe(texto)){
             this.errorAñadirPalabra.setText("Esta palabra ya existe");
         }else{
-            motor.anhadirPalabra(texto);
+            try {
+                motor.anhadirPalabra(texto);
+            } catch (IOException | SQLException ex) {
+                Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.errorAñadirPalabra.setText("Palabra añadida correctamente");
             
         }
@@ -1106,10 +1144,19 @@ public class WordleGUI extends javax.swing.JFrame {
         if(!texto.matches("[A-Za-z]{5}")){
             this.errorBorrarPalabra.setText("Formato de palabra incorrecto");
         }else if(motor.existe(texto)){
-            motor.borrarPalabra(texto);
-            this.errorBorrarPalabra.setText("Palabra borrada con exito");
+            try {
+                motor.borrarPalabra(texto);
+                this.errorBorrarPalabra.setText("Palabra borrada con exito");
+            } catch (SQLException ex) {
+                Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }else{
-            motor.anhadirPalabra(texto);
+            try {
+                motor.anhadirPalabra(texto);
+            } catch (IOException | SQLException ex) {
+                Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.errorBorrarPalabra.setText("La palabra no existe");
             
         }
@@ -1120,9 +1167,21 @@ public class WordleGUI extends javax.swing.JFrame {
     private void cerrarGestionMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarGestionMotorActionPerformed
         this.modificar.dispose();
         this.setVisible(true);
-        reiniciar();
+        try {
+            reiniciar();
+        } catch (SQLException ex) {
+            Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_cerrarGestionMotorActionPerformed
+
+    private void motorBDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorBDCActionPerformed
+        try {
+            seleccionarMotor();
+        } catch (SQLException ex) {
+            Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_motorBDCActionPerformed
     
     
     
@@ -1143,16 +1202,19 @@ public class WordleGUI extends javax.swing.JFrame {
     }
     
     //metodo para seleccionar el motor de juego
-    private void seleccionarMotor(){
+    private void seleccionarMotor() throws SQLException{
         if(this.motorDeporte.isSelected()){
             motor = new motorDeporte(FICHERO);
             this.motorNombreLabel.setText("Deportle");
         }else if(this.motorTestBoton.isSelected()){
             motor = new motorTest();
             this.motorNombreLabel.setText("Test");
-        }else if(this.motorBD.isSelected()){
-            motor = new motorDeporte(FICHERO);
-            this.motorNombreLabel.setText("File");
+        }else if(this.motorBDG.isSelected()){
+            motor = new motorBaseDatos("gl");
+            this.motorNombreLabel.setText("BD Gallego");
+        }else if(this.motorBDC.isSelected()){
+            motor = new motorBaseDatos("es");
+            this.motorNombreLabel.setText("BD Castellano");
         }
         reiniciar();
     }
@@ -1306,7 +1368,11 @@ public class WordleGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WordleGUI().setVisible(true);
+                try {
+                    new WordleGUI().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(WordleGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -1383,7 +1449,8 @@ public class WordleGUI extends javax.swing.JFrame {
     private javax.swing.JDialog modificar;
     private javax.swing.JRadioButtonMenuItem modoClaro;
     private javax.swing.JRadioButtonMenuItem modoOscuro;
-    private javax.swing.JRadioButtonMenuItem motorBD;
+    private javax.swing.JRadioButtonMenuItem motorBDC;
+    private javax.swing.JRadioButtonMenuItem motorBDG;
     private javax.swing.JRadioButtonMenuItem motorDeporte;
     private javax.swing.JPanel motorNombre;
     private javax.swing.JLabel motorNombreLabel;

@@ -5,14 +5,16 @@
  */
 package Clases;
 
+import java.io.IOException;
+import java.sql.SQLException;
 /**
  *
  * @author alumno
  */
 public interface IWordle {
-    public String palabraAleatoria();
+    public String palabraAleatoria() throws SQLException;
     public boolean existe(String p);
-    public boolean anhadirPalabra(String p);
-    public boolean borrarPalabra(String p);
+    public boolean anhadirPalabra(String p) throws IOException, SQLException;
+    public boolean borrarPalabra(String p) throws  SQLException;
     public void mostrar();
 }
