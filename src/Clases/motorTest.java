@@ -55,21 +55,24 @@ public class motorTest implements IWordle{
         
         p = p.toLowerCase();
         
-        if(p.matches("[A-Za-z]{5}")){
+        if(!p.matches("[A-Za-z]{5}")){
+            System.out.println("no match");
             return false;
         }
         else if(existe(p)){
             return false;
         }else{
             palabras.add(p);
+            System.out.println("añadida");
             return true;
+            
         }
     }
 
     @Override
     public boolean borrarPalabra(String p) {
         p = p.toLowerCase();
-        if(p.matches("[A-Za-z]{5}")){
+        if(!p.matches("[A-Za-z]{5}")){
             return false;
         }
         else if(existe(p)){
@@ -78,6 +81,10 @@ public class motorTest implements IWordle{
         }else{
             return false;
         }
+    }
+    
+    public void mostrar(){
+        System.out.println(palabras);
     }
     
     

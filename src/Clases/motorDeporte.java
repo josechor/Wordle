@@ -117,26 +117,8 @@ public class motorDeporte implements IWordle {
         }
         return false;
     }
-
-    private void crearFichero() {
-
-        FICHERO.getParentFile().mkdirs();
-        try {
-            FICHERO.createNewFile();
-        } catch (IOException ex) {
-            Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    private boolean checkPalabra(String p) {
-
-        p = p.toLowerCase().trim();
-        return p.matches("[A-Za-z]{5}");
-
-    }
-
-    private boolean setToFile() {
+    
+        private boolean setToFile() {
 
         if (!FICHERO.exists()) {
             crearFichero();
@@ -160,6 +142,26 @@ public class motorDeporte implements IWordle {
         return false;
 
     }
+
+    private void crearFichero() {
+
+        FICHERO.getParentFile().mkdirs();
+        try {
+            FICHERO.createNewFile();
+        } catch (IOException ex) {
+            Logger.getLogger(motorDeporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private boolean checkPalabra(String p) {
+
+        p = p.toLowerCase().trim();
+        return p.matches("[A-Za-z]{5}");
+
+    }
+
+
 
     @Override
     public void mostrar() {

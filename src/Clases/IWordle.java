@@ -14,4 +14,5 @@ public interface IWordle {
     public boolean existe(String p);
     public boolean anhadirPalabra(String p);
     public boolean borrarPalabra(String p);
+    public void mostrar();
 }

@@ -10,12 +10,13 @@ import Clases.motorTest;
 import Clases.motorDeporte;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
@@ -25,6 +26,7 @@ import javax.swing.JLabel;
 public class WordleGUI extends javax.swing.JFrame {
     
     private boolean claridad = true;
+    private static final File FICHERO = new File(Path.of(".") + File.separator + "data" + File.separator + "palabras.txt");
     
     Set<String> verdes = new TreeSet<>();
     Set<String> rojas = new TreeSet<>();
@@ -904,11 +906,16 @@ public class WordleGUI extends javax.swing.JFrame {
             this.ganarLabel1.setForeground(VERDE_PARA_OSCURO);
             this.ganarLabel2.setForeground(VERDE_PARA_OSCURO);
             this.palabraIntentar.setBorder(BorderFactory.createLineBorder(VERDE_PARA_OSCURO));
-            
+
         }
-        
-        this.ganarLabel1.setText("  Enhorabuena!!!!!");
-        this.ganarLabel2.setText("  Has ganado en "+cont+" intentos");
+        if (cont == 1) {
+            this.ganarLabel1.setText("  Enhorabuena!!!!!");
+            this.ganarLabel2.setText("  Has ganado en " + cont + " intento");
+        }else{
+            this.ganarLabel1.setText("  Enhorabuena!!!!!");
+            this.ganarLabel2.setText("  Has ganado en " + cont + " intentos");
+        }
+
         
     }
     
@@ -1138,13 +1145,13 @@ public class WordleGUI extends javax.swing.JFrame {
     //metodo para seleccionar el motor de juego
     private void seleccionarMotor(){
         if(this.motorDeporte.isSelected()){
-            motor = new motorDeporte();
+            motor = new motorDeporte(FICHERO);
             this.motorNombreLabel.setText("Deportle");
         }else if(this.motorTestBoton.isSelected()){
             motor = new motorTest();
             this.motorNombreLabel.setText("Test");
         }else if(this.motorBD.isSelected()){
-            motor = new motorDeporte();
+            motor = new motorDeporte(FICHERO);
             this.motorNombreLabel.setText("File");
         }
         reiniciar();
