@@ -1300,7 +1300,7 @@ public class WordleGUI extends javax.swing.JFrame {
     
     //almacenar letras rojas en label
     private void letrasRojo(String letra){
-        if(!rojas.contains(letra)){
+        if(!rojas.contains(letra) && !verdes.contains(letra)){
             rojas.add(letra);
         }
         
